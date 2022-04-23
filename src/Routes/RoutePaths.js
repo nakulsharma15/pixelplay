@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import {Home,Explore,Playlist,History,MockMan,Liked,Login,Signup,WatchLater} from "../Pages/index";
+import {Home,Playlist,History,MockMan,Liked,Login,Signup,WatchLater} from "../Pages/index";
 
 function RoutePaths () {
 

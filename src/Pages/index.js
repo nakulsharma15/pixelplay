@@ -1,5 +1,4 @@
 import Home from "./Home";
-import Explore from "./Explore";
 import WatchLater from "./WatchLater";
 import Login from "./Login";
 import Signup from "./Signup";
@@ -10,7 +9,6 @@ import History from "./History";
 
 export {
     Home,
-    Explore,
     WatchLater,
     Login,
     Signup,
