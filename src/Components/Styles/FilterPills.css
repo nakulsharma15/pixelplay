@@ -1,7 +1,7 @@
 .filter-pills {
     display: flex;
     gap: 1rem;
-    width: 90%;
+    width: 100%;
 }
 
 .filter-pill {

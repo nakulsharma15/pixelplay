@@ -1,9 +1,13 @@
 .header {
-    border: 1px solid red;
+    position: sticky;
+    top: 0px;
+    background-color: var(--primary-bg-color);
+    border-bottom: 1px solid var(--gray-600);
 }
 
 .header-logo {
     padding: 1rem;
+    background-color: var(--primary-bg-color);
 }
 
 .header-logo-img {

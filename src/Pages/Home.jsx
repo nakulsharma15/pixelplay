@@ -1,13 +1,63 @@
-import { Header,Menu,FilterPills } from "../Components";
+import { Header, Menu, FilterPills, SideNav } from "../Components";
+import "./Styles.css";
 
 export default function Home() {
 
     return (
         <div>
-            <Header />
-            <Menu />
-            <FilterPills />
-            <h1>This is Home.</h1>
+            <Header /> 
+                
+
+            <div className="page-content">
+
+            
+            <div className="sidenav">
+            <SideNav />
+            </div>
+                
+            
+
+            <div className="main-content">
+                <Menu />
+                <FilterPills />
+                <h1>Home</h1>
+                <h1>Home</h1>
+
+                {/* <h1>Home</h1>
+
+                <h1>Home</h1>
+                <h1>Home</h1>
+                <h1>Home</h1>
+                <h1>Home</h1>
+                <h1>Home</h1>
+                <h1>Home</h1>
+                <h1>Home</h1>
+                <h1>Home</h1>
+                <h1>Home</h1>
+                <h1>Home</h1>
+                <h1>Home</h1>
+                <h1>Home</h1>
+                <h1>Home</h1>
+
+                <h1>Home</h1>
+                <h1>Home</h1>
+                <h1>Home</h1>
+                <h1>Home</h1>
+                <h1>Home</h1>
+                <h1>Home</h1>
+                <h1>Home</h1>
+                <h1>Home</h1>
+                <h1>Home</h1>
+                <h1>Home</h1>
+                <h1>Home</h1>
+                <h1>Home</h1>
+                <h1>Home</h1>
+                <h1>Home</h1>
+                <h1>Home</h1> */}
+            </div>
+
+            </div>
+
         </div>)
 
 }

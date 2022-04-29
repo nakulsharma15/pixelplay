@@ -1,0 +1,40 @@
+.sidenav-menu {
+    display: flex;
+    flex-direction: column;
+    max-width: fit-content;
+}
+
+.menu-item {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem;
+    width: 12rem;
+}
+
+.menu-item:hover {
+    background-color: var(--chip-hover-color);
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .sidenav-menu {
+        flex-direction: row;
+        position: sticky;
+        top: 20px;
+    }
+    .menu-item {
+        flex-direction: column;
+        align-items: center;
+        font-size: 0.6rem;
+    }
+
+}
+
+@media only screen and (max-width: 450px) {
+
+    .menu-item p {
+        display: none;
+    }    
+
+}
