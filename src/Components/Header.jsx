@@ -14,9 +14,7 @@ export default function Header() {
 
             </div>
 
-            <button class="btn primary-btn flex-sb login-btn"><span class="material-symbols-outlined">account_circle</span>LOGIN</button>
-            
-
+            <button class="btn primary-btn flex-sb login-btn"><span class="material-symbols-outlined">account_circle</span>LOGIN</button>        
 
         </div>)
 

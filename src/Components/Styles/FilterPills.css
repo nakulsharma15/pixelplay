@@ -1,0 +1,30 @@
+.filter-pills {
+    display: flex;
+    gap: 1rem;
+    width: 90%;
+}
+
+.filter-pill {
+    font-size: 0.9rem;
+    padding: 0.4rem 1rem;
+    border-radius: 1.25rem;
+    background-color: var(--chip-color);
+}
+
+.filter-pill:hover {
+    cursor: pointer;
+    background-color: var(--chip-hover-color);
+}
+
+@media only screen and (max-width: 500px) {
+
+    .filter-pills {
+        overflow-x: scroll;
+    }
+
+    .filter-pill {
+        min-width: fit-content;
+        padding: 0.4rem 1rem;
+    }
+    
+}

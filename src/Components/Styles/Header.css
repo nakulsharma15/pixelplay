@@ -27,6 +27,23 @@
 
 .login-btn:hover {
     background-color: transparent;
-    border: 1px solid var(--blue-400);
     color: var(--blue-300);
+}
+
+@media only screen and (max-width: 600px) {
+
+    .header-logo h1 {
+        font-size: 1.5rem;
+    }
+
+    .header-logo-img {
+        max-width: 3rem;
+    }
+
+    .login-btn {
+        width: 6rem;
+        font-size: 1rem;
+        justify-content: space-evenly;
+    }
+
 }

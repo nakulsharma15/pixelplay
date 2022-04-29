@@ -5,6 +5,8 @@
   --primary-bg-color: #181818;
   --aside-bg-color: #212121;
   --pp-primary-color: #3ea6ff;
+  --chip-color: #ffffff1a;
+  --chip-hover-color: #444444;
 }
 
 body {
