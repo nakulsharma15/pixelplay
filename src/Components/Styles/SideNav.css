@@ -1,14 +1,19 @@
 .sidenav-menu {
     display: flex;
     flex-direction: column;
-    max-width: fit-content;
+    width: 12.5rem;
+    height: 100%;
+    background-color: var(--aside-bg-color);
+    position: fixed;
+    z-index: 1;
+    top: 4.65rem;
+    left: 0;
 }
 
 .menu-item {
     display: flex;
     gap: 0.5rem;
     padding: 1rem;
-    width: 12rem;
 }
 
 .menu-item:hover {
@@ -20,21 +25,32 @@
 
     .sidenav-menu {
         flex-direction: row;
-        position: sticky;
-        top: 20px;
+        align-items: center;
+        justify-content: space-evenly;
+        position: fixed;
+        bottom: 0;
+        left: auto;
+        top: auto;
+        height: fit-content;
+        width: 100%;
     }
+
     .menu-item {
         flex-direction: column;
         align-items: center;
         font-size: 0.6rem;
     }
 
+    .menu-item span {
+        font-size: 1.5rem;
+    }
+
 }
 
 @media only screen and (max-width: 450px) {
-
-    .menu-item p {
-        display: none;
-    }    
+    
+    .menu-item span{
+        font-size: 1rem;
+    }
 
 }

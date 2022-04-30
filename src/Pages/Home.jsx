@@ -5,56 +5,50 @@ export default function Home() {
 
     return (
         <div>
-            <Header /> 
-                
+            <Header />
+
 
             <div className="page-content">
+           
+                    <SideNav />
 
-            
-            <div className="sidenav">
-            <SideNav />
-            </div>
-                
-            
 
-            <div className="main-content">
-                <Menu />
-                <FilterPills />
-                <h1>Home</h1>
-                <h1>Home</h1>
+                <div className="main-content">
+                    <FilterPills />
+                    <h1>Home</h1>
 
-                {/* <h1>Home</h1>
+                    <h1>Home</h1>
 
-                <h1>Home</h1>
-                <h1>Home</h1>
-                <h1>Home</h1>
-                <h1>Home</h1>
-                <h1>Home</h1>
-                <h1>Home</h1>
-                <h1>Home</h1>
-                <h1>Home</h1>
-                <h1>Home</h1>
-                <h1>Home</h1>
-                <h1>Home</h1>
-                <h1>Home</h1>
-                <h1>Home</h1>
+                    <h1>Home</h1>
+                    <h1>Home</h1>
+                    <h1>Home</h1>
+                    <h1>Home</h1>
+                    <h1>Home</h1>
+                    <h1>Home</h1>
+                    <h1>Home</h1>
+                    <h1>Home</h1>
+                    <h1>Home</h1>
+                    <h1>Home</h1>
+                    <h1>Home</h1>
+                    <h1>Home</h1>
+                    <h1>Home</h1>
 
-                <h1>Home</h1>
-                <h1>Home</h1>
-                <h1>Home</h1>
-                <h1>Home</h1>
-                <h1>Home</h1>
-                <h1>Home</h1>
-                <h1>Home</h1>
-                <h1>Home</h1>
-                <h1>Home</h1>
-                <h1>Home</h1>
-                <h1>Home</h1>
-                <h1>Home</h1>
-                <h1>Home</h1>
-                <h1>Home</h1>
-                <h1>Home</h1> */}
-            </div>
+                    <h1>Home</h1>
+                    <h1>Home</h1>
+                    <h1>Home</h1>
+                    <h1>Home</h1>
+                    <h1>Home</h1>
+                    <h1>Home</h1>
+                    <h1>Home</h1>
+                    <h1>Home</h1>
+                    <h1>Home</h1>
+                    <h1>Home</h1>
+                    <h1>Home</h1>
+                    <h1>Home</h1>
+                    <h1>Home</h1>
+                    <h1>Home</h1> 
+                    <h1>Home</h1>
+                </div>
 
             </div>
 

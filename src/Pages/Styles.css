@@ -1,26 +1,18 @@
-.page-content {
-    display: flex;
-}
-
 .header {
     position: sticky;
     top: 0px;
 }
 
-
-.sidenav {
-    height: 100%;
+.main-content {
+    overflow-y: auto;
+    margin-left: 12.5rem;
 }
+
 
 @media only screen and (max-width: 768px) {
 
-    .page-content {
-        flex-direction: column-reverse;
-    }
+ .main-content {
+     margin-left: 0px;
+ }
 
-    .sidenav {
-        background-color: var(--primary-bg-color);
-        border-top: 1px solid var(--gray-600);
-        border-right: 0px;
-    }
 }
