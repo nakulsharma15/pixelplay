@@ -1,0 +1,58 @@
+.video-card {
+    margin: 1rem;
+    max-width: fit-content;
+}
+
+
+.video-thumbnail {
+    max-width: 17.25rem;
+}
+
+.video-thumbnail img {
+    max-width: 100%;
+    display: block;
+    height: auto;
+}
+
+.video-footer {
+    display: flex;
+    max-width: 17.25rem;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+
+.avatar {
+    max-width: 2.5rem;
+    margin: 0rem;
+    border: none;
+}
+
+.avatar img {
+    max-width: 100%;
+    border-radius: 50%;
+    display: block;
+    height: auto;
+
+}
+
+.video-title {
+
+    max-width: 13rem;
+    color: var(--white);
+    font-weight: 500;
+    font-size: 0.875rem;
+
+}
+
+.video-creator {
+    color: rgb(170, 170, 170);
+    display: flex;
+    align-items: center;
+    font-size: 0.75rem;
+    gap: 0.2rem;
+    margin-top: 0.25rem;
+}
+
+.video-creator span {
+    font-size: 0.875rem;
+}

@@ -8,6 +8,7 @@ export const videos = [
     _id: "8CCtqtva6ok",
     title: "POCO X4 Pro Review - $250 iPhone Destroyer?",
     thumbnail: "https://res.cloudinary.com/nakulsharma15/image/upload/v1651163019/PixelPlay%20Video%20Library/Smartphone%20Video%20Thumbnails/hq720_dtfwm4.jpg",
+    avatar:"",
     description:
       "Unboxing and Review of the POCO X4 Pro, the best budget phone in 2022, including Camera test, battery life, and price, but then also the sneaky ways that POCO manages to make their phones so cheap!",
     creator: "Mrwhosetheboss",

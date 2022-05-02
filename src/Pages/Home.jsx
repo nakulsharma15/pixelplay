@@ -1,4 +1,4 @@
-import { Header, Menu, FilterPills, SideNav } from "../Components";
+import { Header, FilterPills, SideNav, VideoCard } from "../Components";
 import "./Styles.css";
 
 export default function Home() {
@@ -9,45 +9,20 @@ export default function Home() {
 
 
             <div className="page-content">
-           
-                    <SideNav />
+
+                <SideNav />
 
 
                 <div className="main-content">
                     <FilterPills />
-                    <h1>Home</h1>
 
-                    <h1>Home</h1>
+                    <div className="video-list">
+                        <VideoCard />
+                    </div>
 
-                    <h1>Home</h1>
-                    <h1>Home</h1>
-                    <h1>Home</h1>
-                    <h1>Home</h1>
-                    <h1>Home</h1>
-                    <h1>Home</h1>
-                    <h1>Home</h1>
-                    <h1>Home</h1>
-                    <h1>Home</h1>
-                    <h1>Home</h1>
-                    <h1>Home</h1>
-                    <h1>Home</h1>
-                    <h1>Home</h1>
 
-                    <h1>Home</h1>
-                    <h1>Home</h1>
-                    <h1>Home</h1>
-                    <h1>Home</h1>
-                    <h1>Home</h1>
-                    <h1>Home</h1>
-                    <h1>Home</h1>
-                    <h1>Home</h1>
-                    <h1>Home</h1>
-                    <h1>Home</h1>
-                    <h1>Home</h1>
-                    <h1>Home</h1>
-                    <h1>Home</h1>
-                    <h1>Home</h1> 
-                    <h1>Home</h1>
+
+
                 </div>
 
             </div>
