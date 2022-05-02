@@ -5,7 +5,7 @@
 
 
 .video-thumbnail {
-    max-width: 17.25rem;
+    width: 15rem;
 }
 
 .video-thumbnail img {
@@ -16,13 +16,13 @@
 
 .video-footer {
     display: flex;
-    max-width: 17.25rem;
-    justify-content: space-between;
+    width: 15rem;
+    gap: 1rem;
     margin-top: 0.5rem;
 }
 
 .avatar {
-    max-width: 2.5rem;
+    max-width: 2rem;
     margin: 0rem;
     border: none;
 }
@@ -40,7 +40,7 @@
     max-width: 13rem;
     color: var(--white);
     font-weight: 500;
-    font-size: 0.875rem;
+    font-size: 0.85rem;
 
 }
 
@@ -54,5 +54,50 @@
 }
 
 .video-creator span {
-    font-size: 0.875rem;
+    font-size: 0.825rem;
 }
+
+.video-card:hover {
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width: 570px) {
+
+   .video-thumbnail {
+       width: 20rem;
+   }
+
+   .video-footer {
+       width: 20rem;
+   }
+
+   .avatar {
+       max-width: 2.5rem;
+   }
+
+   .video-title p{
+       width: 16rem;
+   }
+   
+}
+
+@media only screen and (max-width: 325px) {
+
+    .video-thumbnail {
+        max-width: 15rem;
+    }
+ 
+    .video-footer {
+        max-width: 15rem;
+    }
+ 
+    .avatar {
+        max-width: 2.5rem;
+    }
+ 
+    .video-title p{
+        max-width: 12rem;
+    }
+    
+ }

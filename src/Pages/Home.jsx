@@ -1,7 +1,10 @@
 import { Header, FilterPills, SideNav, VideoCard } from "../Components";
 import "./Styles.css";
+import {videos} from "../backend/db/videos";
 
 export default function Home() {
+
+    console.log(videos);
 
     return (
         <div>
@@ -17,7 +20,7 @@ export default function Home() {
                     <FilterPills />
 
                     <div className="video-list">
-                        <VideoCard />
+                        {videos.map((video) => <div key={video._id} className="video-card-div"><VideoCard Video={video} /></div>)}
                     </div>
 
 

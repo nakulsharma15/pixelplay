@@ -1,27 +1,27 @@
 import "./Styles/VideoCard.css"
 
-export default function VideoCard() {
+export default function VideoCard({Video}) {
 
     return (
         <div className="video-card">
 
             <div className="video-thumbnail">
-                <img src="https://res.cloudinary.com/nakulsharma15/image/upload/v1651163019/PixelPlay%20Video%20Library/Smartphone%20Video%20Thumbnails/hq720_dtfwm4.jpg" alt="video" />
+                <img src={Video.thumbnail} alt="video" />
             </div>
 
             <div className="video-footer">
 
                <div className="avatar">
-               <img src="https://res.cloudinary.com/nakulsharma15/image/upload/v1651476965/PixelPlay%20Video%20Library/Channel%20Avatar/download_kmvi1c.jpg" alt="video" />
+               <img src={Video.avatar} alt="video" />
                </div>
 
                 <div className="video-info">
                     <div className="video-title">
-                        <p>POCO X4 Pro Review - $250 iPhone Destroyer?</p>
+                        <p>{Video.title}</p>
                     </div>
 
                     <div className="video-creator">
-                        <p>Mrwhosetheboss</p>
+                        <p>{Video.creator}</p>
                         <span class="material-icons">check_circle</span>
                     </div>
                 </div>

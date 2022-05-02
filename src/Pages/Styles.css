@@ -10,6 +10,9 @@
 
 .video-list {
     margin-top: 4.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 
@@ -20,3 +23,12 @@
  }
 
 }
+
+
+@media only screen and (max-width: 570px) {
+
+    .video-list {
+        justify-content: center;
+    }
+   
+   }
