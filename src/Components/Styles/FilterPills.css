@@ -22,6 +22,15 @@
     background-color: var(--chip-hover-color);
 }
 
+.filter-pill-selected {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+.filter-pill-selected:hover {
+    background-color: var(--white);
+}
+
 @media only screen and (max-width: 500px) {
 
     .filter-pills {
