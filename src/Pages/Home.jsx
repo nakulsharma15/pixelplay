@@ -1,14 +1,21 @@
 import { Header, FilterPills, SideNav, VideoCard } from "../Components";
 import "./Styles.css";
-import { videos } from "../backend/db/videos";
 import { useFilter } from "../Filters/FilterContext";
+import useAxios from "../Utils/useAxios";
 
 
 export default function Home() {
 
-    let filteredVideos = videos;
+    let videos = [];
     const { filterState, filterDispatch } = useFilter();
     const { filterSelected } = filterState;
+
+    const {responseData , isLoading} = useAxios("/api/videos");
+
+    if(isLoading === false)
+     videos = (responseData.videos);
+
+    let filteredVideos = videos; 
 
     if(filterSelected !== "All")
     filteredVideos = videos.filter((video) => video.category === filterSelected);

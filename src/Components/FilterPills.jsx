@@ -1,9 +1,14 @@
 import "./Styles/FilterPills.css";
 import { useFilter } from "../Filters/FilterContext";
+import useAxios from "../Utils/useAxios";
 
 export default function FilterPills() {
 
-    let categories = ["All","Smartphones","Laptops","Tech Explained"];
+    let categories = [];
+    const {responseData , isLoading} = useAxios("/api/categories");
+
+    if(isLoading === false)
+    categories = responseData.categories;
 
     const { filterState, filterDispatch } = useFilter();
     const { filterSelected } = filterState;
@@ -11,7 +16,7 @@ export default function FilterPills() {
     return (
         <div className="filter-pills">
 
-            {categories.map((category) => <div className={`filter-pill text-m flex-center ${filterSelected === category ? "filter-pill-selected" : ""}`} onClick={() => filterDispatch({ type: "SETFILTER", payload: category})}><p>{category}</p></div>)}
+            {categories.map(({categoryName}) => <div className={`filter-pill text-m flex-center ${filterSelected ===categoryName ? "filter-pill-selected" : ""}`} onClick={() => filterDispatch({ type: "SETFILTER", payload: categoryName})}><p>{categoryName}</p></div>)}
             
         </div>
     )
