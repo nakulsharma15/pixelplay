@@ -18,13 +18,13 @@
 
 @media only screen and (max-width: 768px) {
 
- .main-content {
-     margin-left: 0px;
- }
+    .main-content {
+        margin-left: 0px;
+    }
 
- .video-list {
-    margin-bottom: 5rem;
-}
+    .video-list {
+        margin-bottom: 5rem;
+    }
 
 }
 
@@ -34,5 +34,5 @@
     .video-list {
         justify-content: center;
     }
-   
-   }
+
+}
