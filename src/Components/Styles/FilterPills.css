@@ -1,0 +1,45 @@
+.filter-pills {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    position: fixed;
+    top: 4.65rem;
+    padding: 0.75rem 1.25rem;
+    background-color: var(--aside-bg-color);
+    border-top: 1px solid var(--gray-600);
+    border-bottom: 1px solid var(--gray-600);
+}
+
+.filter-pill {
+    font-size: 0.9rem;
+    padding: 0.2rem 1rem;
+    border-radius: 1.25rem;
+    background-color: var(--chip-color);
+}
+
+.filter-pill:hover {
+    cursor: pointer;
+    background-color: var(--chip-hover-color);
+}
+
+.filter-pill-selected {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+.filter-pill-selected:hover {
+    background-color: var(--white);
+}
+
+@media only screen and (max-width: 500px) {
+
+    .filter-pills {
+        overflow-x: scroll;
+        padding: 0.5rem;
+    }
+
+    .filter-pill {
+        min-width: fit-content;
+    }
+    
+}
