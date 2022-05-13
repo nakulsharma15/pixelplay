@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import {Home,Playlist,History,MockMan,Liked,Login,Signup,WatchLater} from "../Pages/index";
+import {Home,Playlist,History,MockMan,Liked,Login,Signup,WatchLater,VideoPage} from "../Pages/index";
 
 function RoutePaths () {
 
@@ -13,6 +13,7 @@ function RoutePaths () {
         <Route path="/signup" element={<Signup />} />
         <Route path="/watchlater" element={<WatchLater />} />
         <Route path="/mockman" element={<MockMan />} />
+        <Route path="/watch" element={<VideoPage />} />
       </Routes>
     )
 }

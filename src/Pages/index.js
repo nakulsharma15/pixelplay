@@ -6,6 +6,7 @@ import Liked from "./Liked";
 import MockMan from "./MockMan";
 import Playlist from "./Playlist";
 import History from "./History";
+import VideoPage from "./VideoPage";
 
 export {
     Home,
@@ -15,5 +16,6 @@ export {
     Liked,
     MockMan,
     Playlist,
-    History
+    History,
+    VideoPage
 }
