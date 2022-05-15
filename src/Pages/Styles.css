@@ -23,7 +23,7 @@
 
 .video-player {
     max-width: 100%;
-    height: 23.5rem;
+    height: fit-content;
     border: 1px solid red;
 }
 .video-actions {
@@ -50,6 +50,11 @@
 
     .video-list {
         justify-content: center;
+    }
+    .video-section {
+        border: 1px solid blue;
+        max-width: 100%;
+        margin: 1rem;
     }
 
 }
