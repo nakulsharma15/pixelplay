@@ -53,6 +53,17 @@
     font-weight: 550;
 }
 
+.channel-info span {
+    font-size: 1rem;
+    color: rgb(170, 170, 170);
+}
+
+.video-creator-div {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
 .video-desc {
     padding-top: 0.25rem;
     margin-left:3rem;

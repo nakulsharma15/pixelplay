@@ -6,7 +6,7 @@ import useAxios from "../Utils/useAxios";
 
 export default function VideoPage() {
 
-    const {videoId} = useParams();
+    const { videoId } = useParams();
 
     const opts = {
         height: '390',
@@ -18,11 +18,11 @@ export default function VideoPage() {
 
     let videos = [];
 
-    const {responseData , isLoading} = useAxios("/api/videos");
+    const { responseData, isLoading } = useAxios("/api/videos");
 
-    if(isLoading === false)
-     videos = (responseData.videos);
-    
+    if (isLoading === false)
+        videos = (responseData.videos);
+
     const videoToPlay = videos.find((video) => video._id === videoId)
 
     console.log(videoToPlay)
@@ -50,7 +50,11 @@ export default function VideoPage() {
                                 <div className="avatar">
                                     <img src={videoToPlay.avatar} alt="video" />
                                 </div>
-                                <p>{videoToPlay.creator}</p>
+                                <div className="video-creator-div">
+                                    <p>{videoToPlay.creator}</p>
+                                    <span class="material-icons">check_circle</span>
+                                </div>
+
                             </div>
 
                             <VideoActions />
