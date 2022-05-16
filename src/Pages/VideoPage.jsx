@@ -1,4 +1,4 @@
-import { Header,  SideNav} from "../Components";
+import { Header, SideNav, VideoActions } from "../Components";
 import "./Styles.css";
 import YouTube from 'react-youtube';
 
@@ -9,10 +9,9 @@ export default function VideoPage() {
         height: '390',
         width: '780',
         playerVars: {
-          // https://developers.google.com/youtube/player_parameters for more info
-          autoplay: 1,
+            autoplay: 1,
         },
-      };
+    };
 
     return (
         <div>
@@ -23,12 +22,28 @@ export default function VideoPage() {
                 <SideNav />
 
                 <div className="main-content">
-                   <div className="video-section">
-                       <div className="video-player">
-                       <YouTube videoId={videoId} opts={opts}/>
-                       </div>
-                       <div className="video-actions"></div>
-                   </div>
+                    <div className="video-section">
+                        <div className="video-player">
+                            <YouTube videoId={videoId} opts={opts} />
+                        </div>
+                        <div className="video-name">
+                            <p>Moto G52 Unboxing *Budget Phone Flagship Display*!</p>
+                        </div>
+                        <div className="video-actions">
+
+                            <div className="channel-info">
+                                <div className="avatar">
+                                    <img src="https://res.cloudinary.com/nakulsharma15/image/upload/v1651484675/PixelPlay%20Video%20Library/Channel%20Avatar/download_ebfogs.jpg" alt="video" />
+                                </div>
+                                <p>Tech Burner</p>
+                            </div>
+
+                            <VideoActions />
+                        </div>
+                        <div className="video-info">
+                            <p>Namaskar Dosto, maine is video mein aapse #iQOOZ6 Pro5G #FullyLoaded Smartphone ke baare mein baat ki hai aur share ki hai iQOO Z6 Pro 5G Smartphone ki unboxing aur ek first look.</p>
+                        </div>
+                    </div>
                 </div>
 
             </div>
