@@ -53,7 +53,7 @@
     font-weight: 550;
 }
 
-.video-info {
+.video-desc {
     padding-top: 0.25rem;
     margin-left:3rem;
 }
@@ -83,7 +83,7 @@
         margin-bottom: 5rem;
     }
 
-    .video-info {
+    .video-desc {
         margin-bottom: 5rem;
     }
 

@@ -1,19 +1,23 @@
-import "./Styles/VideoCard.css"
+import "./Styles/VideoCard.css";
+import { Link } from "react-router-dom";
 
-export default function VideoCard({Video}) {
+export default function VideoCard({ Video }) {
 
     return (
         <div className="video-card">
 
-            <div className="video-thumbnail">
-                <img src={Video.thumbnail} alt="video" />
-            </div>
+            <Link to={`/watch/${Video._id}`}>
+                <div className="video-thumbnail">
+                    <img src={Video.thumbnail} alt="video" />
+                </div>
+            </Link>
+
 
             <div className="video-footer">
 
-               <div className="avatar">
-               <img src={Video.avatar} alt="video" />
-               </div>
+                <div className="avatar">
+                    <img src={Video.avatar} alt="video" />
+                </div>
 
                 <div className="video-info">
                     <div className="video-title">

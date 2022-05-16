@@ -1,10 +1,13 @@
 import { Header, SideNav, VideoActions } from "../Components";
 import "./Styles.css";
 import YouTube from 'react-youtube';
+import { useParams } from "react-router-dom";
+import useAxios from "../Utils/useAxios";
 
 export default function VideoPage() {
 
-    const videoId = "C1YfOTAD42M";
+    const {videoId} = useParams();
+
     const opts = {
         height: '390',
         width: '780',
@@ -13,7 +16,19 @@ export default function VideoPage() {
         },
     };
 
+    let videos = [];
+
+    const {responseData , isLoading} = useAxios("/api/videos");
+
+    if(isLoading === false)
+     videos = (responseData.videos);
+    
+    const videoToPlay = videos.find((video) => video._id === videoId)
+
+    console.log(videoToPlay)
+
     return (
+        isLoading ||
         <div>
             <Header />
 
@@ -27,21 +42,21 @@ export default function VideoPage() {
                             <YouTube videoId={videoId} opts={opts} />
                         </div>
                         <div className="video-name">
-                            <p>Moto G52 Unboxing *Budget Phone Flagship Display*!</p>
+                            <p>{videoToPlay.title}</p>
                         </div>
                         <div className="video-actions">
 
                             <div className="channel-info">
                                 <div className="avatar">
-                                    <img src="https://res.cloudinary.com/nakulsharma15/image/upload/v1651484675/PixelPlay%20Video%20Library/Channel%20Avatar/download_ebfogs.jpg" alt="video" />
+                                    <img src={videoToPlay.avatar} alt="video" />
                                 </div>
-                                <p>Tech Burner</p>
+                                <p>{videoToPlay.creator}</p>
                             </div>
 
                             <VideoActions />
                         </div>
-                        <div className="video-info">
-                            <p>Namaskar Dosto, maine is video mein aapse #iQOOZ6 Pro5G #FullyLoaded Smartphone ke baare mein baat ki hai aur share ki hai iQOO Z6 Pro 5G Smartphone ki unboxing aur ek first look.</p>
+                        <div className="video-desc">
+                            <p>{videoToPlay.description}</p>
                         </div>
                     </div>
                 </div>

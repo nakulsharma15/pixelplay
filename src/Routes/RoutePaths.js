@@ -13,7 +13,7 @@ function RoutePaths () {
         <Route path="/signup" element={<Signup />} />
         <Route path="/watchlater" element={<WatchLater />} />
         <Route path="/mockman" element={<MockMan />} />
-        <Route path="/watch" element={<VideoPage />} />
+        <Route path="/watch/:videoId" element={<VideoPage />} />
       </Routes>
     )
 }
