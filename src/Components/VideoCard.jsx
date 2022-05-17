@@ -22,7 +22,7 @@ export default function VideoCard({ Video }) {
                             <p>{Video.title}</p>
                         </div>
 
-                        <div className="video-creator">
+                        <div className="video-creator flex-align-center">
                             <p>{Video.creator}</p>
                             <span class="material-icons">check_circle</span>
                         </div>

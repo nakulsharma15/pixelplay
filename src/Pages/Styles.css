@@ -55,12 +55,10 @@
 
 .channel-info span {
     font-size: 1rem;
-    color: rgb(170, 170, 170);
+    color: var(--tick-color);
 }
 
 .video-creator-div {
-    display: flex;
-    align-items: center;
     gap: 0.25rem;
 }
 

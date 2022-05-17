@@ -50,7 +50,7 @@ export default function VideoPage() {
                                 <div className="avatar">
                                     <img src={videoToPlay.avatar} alt="video" />
                                 </div>
-                                <div className="video-creator-div">
+                                <div className="video-creator-div flex-align-center">
                                     <p>{videoToPlay.creator}</p>
                                     <span class="material-icons">check_circle</span>
                                 </div>

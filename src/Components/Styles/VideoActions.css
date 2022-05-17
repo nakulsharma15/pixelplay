@@ -4,9 +4,7 @@
 } 
 
 .video-action {
-    display: flex;
     gap: 0.5rem;
-    align-items: center;
     padding: 0.25rem;
     font-size: 1rem;
 }
