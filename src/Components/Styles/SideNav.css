@@ -21,6 +21,10 @@
     cursor: pointer;
 }
 
+.active {
+    background-color: var(--chip-hover-color);
+}
+
 @media only screen and (max-width: 768px) {
 
     .sidenav-menu {
@@ -49,7 +53,7 @@
 
 @media only screen and (max-width: 450px) {
     
-    .menu-item span{
+    .menu-item span {
         font-size: 1rem;
     }
 

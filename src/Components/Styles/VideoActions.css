@@ -1,0 +1,14 @@
+.video-action-list {
+    display: flex;
+    gap: 0.75rem;
+} 
+
+.video-action {
+    gap: 0.5rem;
+    padding: 0.25rem;
+    font-size: 1rem;
+}
+
+.video-action span {
+    font-size: 1.25rem;
+}
