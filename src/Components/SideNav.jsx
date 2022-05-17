@@ -10,7 +10,6 @@ export default function SideNav() {
                 <div className="menu-item">
                     <span class="material-symbols-rounded">home</span>
                     <p>Home</p>
-
                 </div>
             </NavLink>
 
