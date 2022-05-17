@@ -7,7 +7,7 @@ function RoutePaths () {
         <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/history" element={<History />} />
-        <Route path="/Playlist" element={<Playlist />}/>
+        <Route path="/playlist" element={<Playlist />}/>
         <Route path="/liked" element={<Liked />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
