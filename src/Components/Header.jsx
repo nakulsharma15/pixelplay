@@ -1,5 +1,7 @@
 import "./Styles/Header.css";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
+import toastStyle from "../Utils/toastStyle";
 
 export default function Header() {
 
@@ -18,7 +20,13 @@ export default function Header() {
             </Link>
 
 
-            <button class="btn primary-btn flex-sb login-btn"><span class="material-symbols-outlined">account_circle</span>LOGIN</button>
+            <button class="btn primary-btn flex-sb login-btn" onClick={() => toast('Hello Darkness!',
+                {
+                    icon: '👏',
+                    style: toastStyle
+                    
+                }
+            )}><span class="material-symbols-outlined">account_circle</span>LOGIN</button>
 
         </div>)
 
