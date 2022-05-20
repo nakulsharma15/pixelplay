@@ -4,6 +4,7 @@ import FilterPills from "./FilterPills";
 import SideNav from "./SideNav";
 import VideoCard from "./VideoCard";
 import VideoActions from "./VideoActions";
+import LoginForm from "./LoginForm";
 
 export {
     Header,
@@ -11,5 +12,6 @@ export {
     FilterPills,
     SideNav,
     VideoCard,
-    VideoActions
+    VideoActions,
+    LoginForm
 }

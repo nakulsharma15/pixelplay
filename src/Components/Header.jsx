@@ -19,14 +19,9 @@ export default function Header() {
                 </div>
             </Link>
 
-
-            <button class="btn primary-btn flex-sb login-btn" onClick={() => toast('Hello Darkness!',
-                {
-                    icon: '👏',
-                    style: toastStyle
-                    
-                }
-            )}><span class="material-symbols-outlined">account_circle</span>LOGIN</button>
+            <Link to="/login">
+                <button class="btn primary-btn flex-sb login-btn"><span class="material-symbols-outlined">account_circle</span>LOGIN</button>
+            </Link>
 
         </div>)
 
