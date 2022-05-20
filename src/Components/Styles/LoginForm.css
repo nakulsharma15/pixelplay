@@ -1,0 +1,51 @@
+
+.form-div-parent {
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+}
+
+.form-div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.email-div {
+    margin-bottom: 2rem;
+}
+
+.form-div input {
+    width: 22.5rem;
+    padding: 0.25rem;
+}
+
+.form-action-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.signup-btn {
+    color: #1a73e8;
+    font-weight: 500;
+    padding: 0.5rem 0.2rem;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.submit-btn {
+    background-color: #1a73e8;
+    padding: 0.5rem 1.5rem;
+    color: var(--white);
+    font-weight: 500;
+    font-size: 0.875rem;
+    border-radius: 5px;
+    border-color: transparent;
+}
+
+.signup-btn:hover {
+    background-color: var(--aside-bg-color);
+}
+
