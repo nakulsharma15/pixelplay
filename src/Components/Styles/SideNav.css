@@ -25,6 +25,7 @@
     background-color: var(--chip-hover-color);
 }
 
+
 @media only screen and (max-width: 768px) {
 
     .sidenav-menu {

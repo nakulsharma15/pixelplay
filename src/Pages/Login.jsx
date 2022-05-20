@@ -1,3 +1,4 @@
+import "./Styles.css";
 import { Header, SideNav, LoginForm } from "../Components";
 
 export default function Login() {
@@ -12,7 +13,10 @@ export default function Login() {
 
                 <div className="main-content">
 
-                    <h1>Login to continue to pixelplay</h1>
+                    <div className="login-header">
+                        <p className="login-main-text">Login</p>
+                        <p className="login-sec-text">to continue to pixelplay</p>
+                    </div>
 
                     <LoginForm />
 
