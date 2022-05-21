@@ -39,6 +39,14 @@
     margin-top: 1rem;
 }
 
+.form-error .error-message{
+    color: red;
+}
+
+.form-error input {
+    border: 2px solid red;
+}
+
 .action-txt {
     color: var(--submit-btn-color);
     font-weight: 500;
