@@ -19,8 +19,17 @@
 
 .form-div input {
     width: 20rem;
-    padding: 0.5rem 0.25rem;
-    border-radius: 5px;
+    padding: 0.75rem 0.5rem;
+    border-radius: 8px;
+    border: transparent;
+    background-color: var(--aside-bg-color);
+    color: var(--white);
+    caret-color: var(--submit-btn-color);
+}
+
+.form-div input:focus {
+   outline: none;
+   border: 2px solid var(--submit-btn-color);
 }
 
 .form-action-div {

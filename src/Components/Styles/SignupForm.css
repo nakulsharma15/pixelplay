@@ -22,8 +22,17 @@
 
 .name-input-div input {
     width: 12rem;
-    padding: 0.5rem 0.25rem;
-    border-radius: 5px;
+    padding: 0.75rem 0.5rem;
+    border-radius: 8px;
+    border-color: transparent;
+    background-color: var(--aside-bg-color);
+    color: var(--white);
+    caret-color: var(--submit-btn-color);
+}
+
+.name-input-div input:focus {
+    outline: transparent;
+    border: 2px solid var(--submit-btn-color);
 }
 
 .form-input-div {
@@ -39,10 +48,18 @@
 
 .form-input-div input {
     width: 25rem;
-    padding: 0.5rem 0.25rem;
-    border-radius: 5px;
+    padding: 0.75rem 0.5rem;
+    border-radius: 8px;
+    border-color: transparent;
+    background-color: var(--aside-bg-color);
+    color: var(--white);
+    caret-color: var(--submit-btn-color);
 }
 
+.form-input-div input:focus {
+    outline: none;
+    border: 2px solid var(--submit-btn-color);
+}
 
 .action-txt {
     color: var(--submit-btn-color);
