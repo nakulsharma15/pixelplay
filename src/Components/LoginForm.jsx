@@ -28,7 +28,7 @@ export default function LoginForm() {
                     <label htmlFor="email">Email</label>
 
                     <div className={(formik.touched.email && formik.errors.email) && "form-error"}>
-                        <input className="email" type="email" onChange={formik.handleChange} value={formik.values.email} placeholder="Enter Email" name="email" onBlur={formik.handleBlur} />
+                        <input className="email" type="email" placeholder="Enter Email" name="email" {...formik.getFieldProps("email")} />
                     </div>
 
                     {
@@ -41,12 +41,12 @@ export default function LoginForm() {
                     <label htmlFor="password">Password</label>
 
                     <div className={(formik.touched.password && formik.errors.password) && "form-error"}>
-                        <input className="password" type="password" placeholder="Enter Password" onChange={formik.handleChange} value={formik.values.password} name="password" onBlur={formik.handleBlur} />
+                        <input className="password" type="password" placeholder="Enter Password" name="password" {...formik.getFieldProps("password")} />
                     </div>
 
 
                     {
-                        (formik.touched.password && formik.errors.password) && <p className="error-message"><span className="material-icons-outlined">error</span>{formik.errors.password}</p>
+                        (formik.touched.password && formik.errors.password) && <p className="error-message">{formik.errors.password}</p>
                     }
 
                 </div>

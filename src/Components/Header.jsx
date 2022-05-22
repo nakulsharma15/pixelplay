@@ -1,7 +1,5 @@
 import "./Styles/Header.css";
 import { Link } from "react-router-dom";
-import toast from "react-hot-toast";
-import toastStyle from "../Utils/toastStyle";
 
 export default function Header() {
 
