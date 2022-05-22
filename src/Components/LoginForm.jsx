@@ -6,39 +6,49 @@ import * as Yup from "yup";
 export default function LoginForm() {
 
     const formik = useFormik({
-        initialValues:{
-            email:"",
-            password:"",
+        initialValues: {
+            email: "",
+            password: "",
         },
         validationSchema: Yup.object({
-            email: Yup.string().required("Username is empty"),
+            email: Yup.string().required("Email is empty").min(6, "Email is invalid"),
             password: Yup.string().required("Password is empty")
         }),
-        onSubmit: (values , actions) => {
-            alert(JSON.stringify(values,null,2));
+        onSubmit: (values, actions) => {
+            alert(JSON.stringify(values, null, 2));
             actions.resetForm();
         }
     });
-
-    let emailError = ((formik.errors.email !== undefined) && formik.touched.email) ? true : false; 
-
-    let passwordError = ((formik.errors.password !== undefined) && formik.touched.password) ? true : false; 
-    
 
     return (
         <div className="form-div-parent">
             <form onSubmit={formik.handleSubmit}>
 
-                <div className={ emailError==true ? "form-div email-div form-error" :"form-div email-div"}>
+                <div className={"form-div email-div"}>
                     <label htmlFor="email">Email</label>
-                    <input className="email" type="email" onChange={formik.handleChange} value={formik.values.email} placeholder="Enter Email" name="email"  />
-                    <p className="error-message">{formik.errors.email}</p>
+
+                    <div className={(formik.touched.email && formik.errors.email) && "form-error"}>
+                        <input className="email" type="email" onChange={formik.handleChange} value={formik.values.email} placeholder="Enter Email" name="email" onBlur={formik.handleBlur} />
+                    </div>
+
+                    {
+                        (formik.touched.email && formik.errors.email) && <p className="error-message">{formik.errors.email}</p>
+                    }
                 </div>
 
-                <div className={passwordError==true ? "form-div email-div form-error" :"form-div email-div"}>
+                <div className={"form-div email-div password-div"} >
+
                     <label htmlFor="password">Password</label>
-                    <input className="password" type="password" placeholder="Enter Password" onChange={formik.handleChange} value={formik.values.password} name="password" />
-                    <p className="error-message">{formik.errors.password}</p>
+
+                    <div className={(formik.touched.password && formik.errors.password) && "form-error"}>
+                        <input className="password" type="password" placeholder="Enter Password" onChange={formik.handleChange} value={formik.values.password} name="password" onBlur={formik.handleBlur} />
+                    </div>
+
+
+                    {
+                        (formik.touched.password && formik.errors.password) && <p className="error-message"><span className="material-icons-outlined">error</span>{formik.errors.password}</p>
+                    }
+
                 </div>
 
                 <p className="action-txt">Login using guest credentials</p>
