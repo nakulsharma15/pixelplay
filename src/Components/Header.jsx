@@ -1,7 +1,10 @@
 import "./Styles/Header.css";
 import { Link } from "react-router-dom";
+import { useAuth } from "../Contexts/AuthContext";
 
 export default function Header() {
+
+    const { isLoggedIn } = useAuth();
 
     return (
         <div className="header flex-sb">
@@ -17,9 +20,10 @@ export default function Header() {
                 </div>
             </Link>
 
-            <Link to="/login">
+            {isLoggedIn ? <p>User</p> :  <Link to="/login">
                 <button class="btn primary-btn flex-sb login-btn"><span class="material-symbols-outlined">account_circle</span>LOGIN</button>
-            </Link>
+            </Link>} 
+           
 
         </div>)
 
