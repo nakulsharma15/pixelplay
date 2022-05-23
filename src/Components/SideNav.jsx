@@ -28,14 +28,14 @@ export default function SideNav() {
                 </div>
             </NavLink>
 
-            <NavLink to="/playlist">
+            <NavLink to="/playlist" onClick={navigateHandler}>
                 <div className="menu-item">
                     <span class="material-symbols-outlined">playlist_add</span>
                     <p>Playlists</p>
                 </div>
             </NavLink>
 
-            <NavLink to="/liked">
+            <NavLink to="/liked" onClick={navigateHandler}>
                 <div className="menu-item">
                     <span class="material-symbols-outlined">thumb_up</span>
                     <p>Liked videos</p>
@@ -49,7 +49,7 @@ export default function SideNav() {
                 </div>
             </NavLink>
 
-            <NavLink to="/history">
+            <NavLink to="/history" onClick={navigateHandler}>
                 <div className="menu-item">
                     <span class="material-symbols-outlined">history</span>
                     <p>History</p>
