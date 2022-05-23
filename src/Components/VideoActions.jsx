@@ -9,7 +9,7 @@ export default function VideoActions() {
 
     const likeHandler = () => {
 
-        isLoggedIn ? null :  toast((t) => (<p><b>Like this video?</b> <p style={{color:"#aaa"}}>Sign in to make your opinion count.</p></p>),
+        isLoggedIn ? null :  toast((t) => (<p><b>Like this video?</b> <p style={{color:"#aaa"}}>Log in to make your opinion count.</p></p>),
         {
           icon: '⚠️',
           style: toastStyle,
@@ -19,7 +19,7 @@ export default function VideoActions() {
 
     const playlistHandler = () => {
 
-        isLoggedIn ? null :  toast((t) => (<p><b>Want to watch this again later?</b> <p style={{color:"#aaa"}}>Sign in to add this video to a playlist.</p></p>),
+        isLoggedIn ? null :  toast((t) => (<p><b>Want to watch this again later?</b> <p style={{color:"#aaa"}}>Log in to add this video to a playlist.</p></p>),
         {
           icon: '⚠️',
           style: toastStyle,
@@ -29,7 +29,7 @@ export default function VideoActions() {
 
     const watchlaterHandler = () => {
 
-        isLoggedIn ? null :  toast((t) => (<p><b>Want to watch this later?</b> <p style={{color:"#aaa"}}>Sign in to add this video to Watch Later.</p></p>),
+        isLoggedIn ? null :  toast((t) => (<p><b>Want to watch this later?</b> <p style={{color:"#aaa"}}>Log in to add this video to Watch Later.</p></p>),
         {
           icon: '⚠️',
           style: toastStyle,
@@ -44,11 +44,11 @@ export default function VideoActions() {
                 <p>Like</p>
             </div>
             <div className="video-action flex-align-center" onClick={watchlaterHandler}>
-                <span class="material-icons-outlined">watch_later</span>
+                <span className="material-icons-outlined">watch_later</span>
                 <p>Watch Later</p>
             </div>
             <div className="video-action flex-align-center" onClick={playlistHandler}>
-                <span class="material-icons-outlined">playlist_add</span>
+                <span className="material-icons-outlined">playlist_add</span>
                 <p>Save</p>
             </div>
 

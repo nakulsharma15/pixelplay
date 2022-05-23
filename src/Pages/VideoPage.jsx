@@ -52,7 +52,7 @@ export default function VideoPage() {
                                 </div>
                                 <div className="video-creator-div flex-align-center">
                                     <p>{videoToPlay.creator}</p>
-                                    <span class="material-icons">check_circle</span>
+                                    <span className="material-icons">check_circle</span>
                                 </div>
 
                             </div>

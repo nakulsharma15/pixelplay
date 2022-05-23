@@ -61,6 +61,17 @@
     border: 2px solid var(--submit-btn-color);
 }
 
+.error-message{
+    /* color: rgb(217, 48, 37); */
+    color: red;
+    font-size: 0.8rem;
+    margin-left: 0.25rem;
+}
+
+.form-error input{
+    border: 2px solid red;
+}
+
 .action-txt {
     color: var(--submit-btn-color);
     font-weight: 500;

@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import { useAuth } from "../Contexts/AuthContext";
 import { toast } from "react-hot-toast";
 import axios from "axios";
+import toastStyle from "../Utils/toastStyle";
 
 export default function LoginForm() {
 
@@ -12,11 +13,11 @@ export default function LoginForm() {
     const navigate = useNavigate();
 
     const guestCredentials = {
-        "email": "pixelplay15@gmail.com",
-        "password":"pixelplay@15"
+        email: "pixelplay15@gmail.com",
+        password:"pixelplay@15"
     }
 
-    const handleLogin = async (loginData) => {
+    const loginHandler = async (loginData) => {
         
         try {
           const response = await axios.post("/api/auth/login", loginData);
@@ -24,12 +25,13 @@ export default function LoginForm() {
             setIsLoggedIn(true);
             setUserDetails(response.data.foundUser);
             localStorage.setItem("Token", response.data.encodedToken);
-            toast.success("You're signed in.");
+            toast.success("You're successfully logged in.", {style: toastStyle});
             navigate(location.state?.from?.pathname || "/");
           }
         } catch (error) {
           console.log(error);
-          toast.error("We couldn't sign you in.");
+          toast.error("The email address you entered isn't connected to an account.", {style: toastStyle
+        });
         }
       };
 
@@ -40,13 +42,11 @@ export default function LoginForm() {
             password:""
         },
         validationSchema: Yup.object({
-            email: Yup.string().required("Email is empty").min(6, "Email is invalid"),
-            password: Yup.string().required("Password is empty")
+            email: Yup.string().required("Email cannot be empty").min(5, "Please enter a valid email address"),
+            password: Yup.string().required("Password cannot be empty")
         }),
-        onSubmit: (values, actions) => {
-            // alert(JSON.stringify(values, null, 2));
-            handleLogin({"email":values.email,"password":values.password});                      
-            console.log(values);
+        onSubmit: (values, actions) => { 
+            loginHandler(JSON.stringify(values));
             actions.resetForm();
         },
     },
@@ -63,7 +63,7 @@ export default function LoginForm() {
                     <label htmlFor="email">Email</label>
 
                     <div className={(formik.touched.email && formik.errors.email) && "form-error"}>
-                        <input className="email" type="email" placeholder="Enter Email" name="email" {...formik.getFieldProps("email")} />
+                        <input type="email" placeholder="Enter Email" name="email" {...formik.getFieldProps("email")} />
                     </div>
 
                     {
@@ -76,7 +76,7 @@ export default function LoginForm() {
                     <label htmlFor="password">Password</label>
 
                     <div className={(formik.touched.password && formik.errors.password) && "form-error"}>
-                        <input className="password" type="password" placeholder="Enter Password" name="password" {...formik.getFieldProps("password")} />
+                        <input type="password" placeholder="Enter Password" name="password" {...formik.getFieldProps("password")} />
                     </div>
 
 
@@ -86,7 +86,7 @@ export default function LoginForm() {
 
                 </div>
 
-                <p className="action-txt" onClick={() => handleLogin(guestCredentials)}>Login using guest credentials</p>
+                <p className="action-txt" onClick={() => loginHandler(JSON.stringify(guestCredentials))}>Login using guest credentials</p>
 
 
                 <div className="form-action-div">

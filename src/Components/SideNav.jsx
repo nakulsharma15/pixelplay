@@ -23,35 +23,35 @@ export default function SideNav() {
             
             <NavLink to="/">
                 <div className="menu-item">
-                    <span class="material-symbols-rounded">home</span>
+                    <span className="material-symbols-rounded">home</span>
                     <p>Home</p>
                 </div>
             </NavLink>
 
             <NavLink to="/playlist" onClick={navigateHandler}>
                 <div className="menu-item">
-                    <span class="material-symbols-outlined">playlist_add</span>
+                    <span className="material-symbols-outlined">playlist_add</span>
                     <p>Playlists</p>
                 </div>
             </NavLink>
 
             <NavLink to="/liked" onClick={navigateHandler}>
                 <div className="menu-item">
-                    <span class="material-symbols-outlined">thumb_up</span>
+                    <span className="material-symbols-outlined">thumb_up</span>
                     <p>Liked videos</p>
                 </div>
             </NavLink>
 
             <NavLink to="/watchlater" onClick={navigateHandler}>
                 <div className="menu-item">
-                    <span class="material-symbols-outlined">schedule</span>
+                    <span className="material-symbols-outlined">schedule</span>
                     <p>Watch Later</p>
                 </div>
             </NavLink>
 
             <NavLink to="/history" onClick={navigateHandler}>
                 <div className="menu-item">
-                    <span class="material-symbols-outlined">history</span>
+                    <span className="material-symbols-outlined">history</span>
                     <p>History</p>
                 </div>
             </NavLink>

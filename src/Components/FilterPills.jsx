@@ -16,7 +16,7 @@ export default function FilterPills() {
     return (
         <div className="filter-pills">
 
-            {categories.map(({categoryName}) => <div className={`filter-pill text-m flex-center ${filterSelected ===categoryName ? "filter-pill-selected" : ""}`} onClick={() => filterDispatch({ type: "SETFILTER", payload: categoryName})}><p>{categoryName}</p></div>)}
+            {categories.map(({categoryName}) => <div key={categoryName} className={`filter-pill text-m flex-center ${filterSelected ===categoryName ? "filter-pill-selected" : ""}`} onClick={() => filterDispatch({ type: "SETFILTER", payload: categoryName})}><p>{categoryName}</p></div>)}
             
         </div>
     )
