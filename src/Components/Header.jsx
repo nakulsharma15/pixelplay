@@ -4,7 +4,7 @@ import { useAuth } from "../Contexts/AuthContext";
 
 export default function Header() {
 
-    const { isLoggedIn } = useAuth();
+    const { isLoggedIn, logoutHandler } = useAuth();
 
     return (
         <div className="header flex-sb">
@@ -20,7 +20,7 @@ export default function Header() {
                 </div>
             </Link>
 
-            {isLoggedIn ? <p>User</p> :  <Link to="/login">
+            {isLoggedIn ? <button class="btn primary-btn flex-sb login-btn" onClick={logoutHandler}><span class="material-symbols-outlined">account_circle</span>LOGOUT</button> :  <Link to="/login">
                 <button class="btn primary-btn flex-sb login-btn"><span class="material-symbols-outlined">account_circle</span>LOGIN</button>
             </Link>} 
            

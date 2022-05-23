@@ -9,8 +9,8 @@ const AuthProvider = ({ children }) => {
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [userDetails, setUserDetails] = useState({
-        firstName: "Damon Salvatore",
-        email: "damonSalvatore@gmail.com",
+        name: "Nakul Sharma",
+        email: "pixelplay15@gmail.com",
     });
     const token = localStorage.getItem("Token");
     const navigate = useNavigate();

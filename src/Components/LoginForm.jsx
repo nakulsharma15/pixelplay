@@ -1,21 +1,37 @@
 import "./Styles/LoginForm.css";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useAuth } from "../Contexts/AuthContext";
+import { toast } from "react-hot-toast";
+import axios from "axios";
 
 export default function LoginForm() {
 
+    const { setUserDetails , setIsLoggedIn} = useAuth();
+    const navigate = useNavigate();
+
     const guestCredentials = {
-        email: "pixelplay15@gmail.com",
-        password:"pixelplay@15"
+        "email": "pixelplay15@gmail.com",
+        "password":"pixelplay@15"
     }
 
-    const login = (data) => {
-        console.log(data);
-    }
-
-    
+    const handleLogin = async (loginData) => {
+        
+        try {
+          const response = await axios.post("/api/auth/login", loginData);
+          if (response.status === 200) {
+            setIsLoggedIn(true);
+            setUserDetails(response.data.foundUser);
+            localStorage.setItem("Token", response.data.encodedToken);
+            toast.success("You're signed in.");
+            navigate(location.state?.from?.pathname || "/");
+          }
+        } catch (error) {
+          console.log(error);
+          toast.error("We couldn't sign you in.");
+        }
+      };
 
 
     const formik = useFormik({
@@ -28,8 +44,8 @@ export default function LoginForm() {
             password: Yup.string().required("Password is empty")
         }),
         onSubmit: (values, actions) => {
-            // alert(JSON.stringify(values, null, 2));  
-            isGuestLogin ? login()  : login("user")                     
+            // alert(JSON.stringify(values, null, 2));
+            handleLogin({"email":values.email,"password":values.password});                      
             console.log(values);
             actions.resetForm();
         },
@@ -70,7 +86,7 @@ export default function LoginForm() {
 
                 </div>
 
-                <p className="action-txt" onClick={() => { }}>Login using guest credentials</p>
+                <p className="action-txt" onClick={() => handleLogin(guestCredentials)}>Login using guest credentials</p>
 
 
                 <div className="form-action-div">
