@@ -12,3 +12,7 @@
 .video-action span {
     font-size: 1.25rem;
 }
+
+.video-action:hover {
+    cursor: pointer;
+}

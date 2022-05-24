@@ -3,6 +3,11 @@ import { Link } from "react-router-dom";
 
 export default function VideoCard({ Video }) {
 
+    const truncateTitle = title => {
+        if(title.length < 52) return title
+        return title.slice(0,52)+"...";
+    }
+
     return (
         <div className="video-card">
 
@@ -19,12 +24,12 @@ export default function VideoCard({ Video }) {
 
                     <div className="video-info">
                         <div className="video-title">
-                            <p>{Video.title}</p>
+                            <p>{truncateTitle(Video.title)}</p>
                         </div>
 
                         <div className="video-creator flex-align-center">
                             <p>{Video.creator}</p>
-                            <span class="material-icons">check_circle</span>
+                            <span className="material-icons">check_circle</span>
                         </div>
 
                     </div>
