@@ -1,9 +1,38 @@
 import "./Styles/SignupForm.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { toast } from "react-hot-toast";
+import axios from "axios";
+import toastStyle from "../Utils/toastStyle";
+import { useAuth } from "../Contexts/AuthContext";
 
 export default function SignupForm() {
+
+    const { setUserDetails, setIsLoggedIn } = useAuth();
+
+    const navigate = useNavigate();
+
+    const signupHandler = async (userData) => {
+
+        try {
+            const response = await axios.post("/api/auth/signup", userData);
+            if (response.status === 201) {
+                setUserDetails(userData);
+                setIsLoggedIn(true)
+                toast.success("You're successfully signed up!", { style: toastStyle });
+                navigate("/", { replace: true });
+                localStorage.setItem("Token", response.data.encodedToken);
+            }
+        } catch (error) {
+            console.log(error);
+            toast.error((t) => (<p><b>Oops! Something went wrong</b> <p style={{ color: "#aaa" }}>Please try again later.</p></p>),
+                {
+                    style: toastStyle,
+                }
+            )
+        }
+    };
 
     const formik = useFormik({
         initialValues: {
@@ -18,10 +47,11 @@ export default function SignupForm() {
             lastName: Yup.string().required("Last Name cannot be empty"),
             email: Yup.string().required("Email cannot be empty").min(5, "Please enter a valid email address"),
             password: Yup.string().required("Password cannot be empty").min(6, "Password's length should be greater than 6"),
-            confirmPassword: Yup.string().required("Kindly Re-Enter the Password").oneOf([Yup.ref("password"), null],"Passwords doesn't match")
+            confirmPassword: Yup.string().required("Kindly Re-Enter the Password").oneOf([Yup.ref("password"), null], "Passwords doesn't match")
         }),
         onSubmit: (values, actions) => {
-           actions.resetForm();
+            signupHandler(values)
+            actions.resetForm();
         },
     },
     );
