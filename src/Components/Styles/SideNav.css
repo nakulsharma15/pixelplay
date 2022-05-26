@@ -16,13 +16,17 @@
     padding: 1rem;
 }
 
+.active {
+    background-color: var(--chip-hover-color);
+}
+
+.active:hover{ 
+    background-color: red;
+}
+
 .menu-item:hover {
     background-color: var(--chip-hover-color);
     cursor: pointer;
-}
-
-.active {
-    background-color: var(--chip-hover-color);
 }
 
 

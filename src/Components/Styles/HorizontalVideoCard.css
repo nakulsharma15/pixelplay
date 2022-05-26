@@ -1,0 +1,79 @@
+.horz-video-card {
+
+    max-width: 40rem;
+    border: 1px solid red;
+    max-height: 10rem;
+    display: flex;
+}
+
+.horz-video-thumbnail {
+    width: 15rem;
+    border: 1px solid blue;
+}
+
+.horz-video-thumbnail img {
+    max-width: 100%;
+    display: block;
+    height: auto;
+}
+
+.horz-video-info {
+    border: 1px solid green;
+    width: 25rem;
+    padding-left: 1rem;
+    max-height: 10rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.horz-video-header {
+    display: flex;
+
+}
+
+.horz-video-title {
+    font-size: 1.125rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.delete-history-btn {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.delete-history-btn span{
+    font-size: 1.5rem;
+    padding: 0rem;
+    font-weight: lighter;
+    color: white;
+}
+
+.horz-video-creater-div {
+    margin-top: 0rem;
+}
+
+.horz-video-footer {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--tick-color);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 575px) {
+
+    .horz-video-title {
+        font-size: 1rem;
+    }
+
+    .horz-video-footer {
+        -webkit-line-clamp: 1;
+    }
+}

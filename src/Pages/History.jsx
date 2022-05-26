@@ -1,4 +1,5 @@
 import { useUserDetails } from "../Contexts/UserContext/UserContext";
+import { HorizontalVideoCard } from "../Components";
 
 export default function History() {
 
@@ -9,6 +10,8 @@ export default function History() {
     return (
         <div>
             <h1>{history.map((video) => <p>{video.title}</p>)}</h1>
+
+            <HorizontalVideoCard />
         </div>)
 
 }
