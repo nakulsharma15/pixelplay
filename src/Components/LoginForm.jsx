@@ -1,5 +1,5 @@
 import "./Styles/LoginForm.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useAuth } from "../Contexts/AuthContext";
@@ -11,6 +11,7 @@ export default function LoginForm() {
 
     const { setUserDetails , setIsLoggedIn} = useAuth();
     const navigate = useNavigate();
+    const location = useLocation();
 
     const guestCredentials = {
         email: "pixelplay15@gmail.com",
@@ -26,11 +27,11 @@ export default function LoginForm() {
             setUserDetails(response.data.foundUser);
             localStorage.setItem("Token", response.data.encodedToken);
             toast.success("You're successfully logged in.", {style: toastStyle});
-            navigate(location.state?.from?.pathname || "/");
+            navigate(location.state?.from?.pathname);
           }
         } catch (error) {
           console.log(error);
-          toast.error("The email address you entered isn't connected to an account.", {style: toastStyle
+          toast.error("Something went wrong. Please try again!", {style: toastStyle
         });
         }
       };

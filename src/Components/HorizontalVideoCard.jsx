@@ -1,12 +1,38 @@
 import "./Styles/HorizontalVideoCard.css";
+import { useUserDetails } from "../Contexts/UserContext/UserContext";
+import axios from "axios";
+import { toast } from "react-hot-toast";
+import toastStyle from "../Utils/toastStyle";
 
-export default function HorizontalVideoCard() {
+export default function HorizontalVideoCard({Video}) {
+
+    const { userDispatch } = useUserDetails();
+
+    const deleteHistoryHandler = async (videoId, userDispatch) => {
+
+        try {
+            const response =  await axios.delete(`/api/user/history/${videoId}`, {
+              headers: {
+                authorization: localStorage.getItem("Token"),
+              },
+            });
+            const { status, data } = response;
+            if (status === 200 || status === 201) {
+              userDispatch({ type: "REMOVE_FROM_HISTORY", payload: data?.history });
+            }
+          } catch (error) {
+            console.log(error);
+            toast.error("Something went wrong. Please try again!", {style: toastStyle
+            });
+          }
+
+    }
 
     return (
         <div className="horz-video-card">
 
             <div className="horz-video-thumbnail">
-                <img src="https://res.cloudinary.com/nakulsharma15/image/upload/v1651163019/PixelPlay%20Video%20Library/Smartphone%20Video%20Thumbnails/hq720_dtfwm4.jpg" />
+                <img src={Video.thumbnail} alt={Video.title}/>
             </div>
 
             <div className="horz-video-info">
@@ -14,19 +40,19 @@ export default function HorizontalVideoCard() {
                 <div className="horz-video-header">
 
                     <div>
-                        <p className="horz-video-title">POCO X4 Pro Review - $250 iPhone Destroyer?</p>
+                        <p className="horz-video-title">{Video.title}</p>
                         <div className="video-creator flex-align-center horz-video-creater-div">
-                            <p>Mrwhosetheboss</p>
+                            <p>{Video.creator}</p>
                             <span className="material-icons">check_circle</span>
                         </div>
                     </div>
 
-                    <button className="delete-history-btn"><span className="material-icons-outlined">delete_outline</span></button>
+                    <button className="delete-history-btn" onClick={() => deleteHistoryHandler(Video._id, userDispatch)}><span className="material-icons-outlined">delete_outline</span></button>
 
                 </div>
 
                 <div className="horz-video-footer">
-                    <p>Unboxing and Review of the POCO X4 Pro, the best budget phone in 2022, including Camera test, battery life, and price, but then also the sneaky ways that POCO manages to make their phones so cheap!</p>
+                    <p>{Video.description}</p>
                 </div>
 
             </div>
