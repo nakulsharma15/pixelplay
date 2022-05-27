@@ -3,8 +3,12 @@ import "./Styles.css";
 import YouTube from 'react-youtube';
 import { useParams } from "react-router-dom";
 import useAxios from "../Utils/useAxios";
+import { useUserDetails } from "../Contexts/UserContext/UserContext";
+import axios from "axios";
 
 export default function VideoPage() {
+
+    const { userState, userDispatch } = useUserDetails();
 
     const { videoId } = useParams();
 
@@ -25,7 +29,36 @@ export default function VideoPage() {
 
     const videoToPlay = videos.find((video) => video._id === videoId)
 
-    console.log(videoToPlay)
+    console.log(videoToPlay);
+
+    const historyHandler = async (videoId, userDispatch) => {
+
+        const videoToAdd = videos.find((video) => video._id === videoId);
+
+        try {
+            const response = await axios.post(
+                "/api/user/history",
+                { video: videoToAdd },
+                {
+                    headers: {
+                        authorization: localStorage.getItem("Token"),
+                    },
+                }
+            );
+            const { status, data } = response;
+            if (status === 201) {
+                userDispatch({ type: "ADD_TO_HISTORY", payload: data?.history });
+                console.log("video added");
+            }
+        } catch (error) {
+            if (error.response.status === 409) {
+            } else {
+                console.log("Couldn't add to History", error);
+            }
+        }
+    };
+
+
 
     return (
         isLoading ||
@@ -39,7 +72,7 @@ export default function VideoPage() {
                 <div className="main-content">
                     <div className="video-section">
                         <div className="video-player">
-                            <YouTube videoId={videoId} opts={opts} />
+                            <YouTube videoId={videoId} opts={opts} onReady={() => historyHandler(videoId, userDispatch)} />
                         </div>
                         <div className="video-name">
                             <p>{videoToPlay.title}</p>

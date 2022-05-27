@@ -99,6 +99,45 @@
     font-weight: 500;
 }
 
+.horz-video-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 1rem;
+}
+
+.history-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.history-page-header p {
+    color: var(--tick-color);
+}
+
+.clear-history-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    background-color: var(--submit-btn-color);
+}
+
+.clear-history-btn span {
+    font-size: 1.2rem;
+}
+
+.clear-history-btn:hover {
+    background-color: var(--blue-700);
+}
+
+.empty-list-text {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    color: var(--tick-color);
+}
 
 @media only screen and (max-width: 768px) {
 
@@ -157,6 +196,26 @@
     .video-actions {
         padding-bottom: 0rem;
         padding-top: 0.5rem;
+    }
+
+    .clear-history-btn span {
+        display: none;
+    }
+
+}
+
+@media only screen and (max-width: 400px) {
+
+    .history-page-header p {
+        display: none;
+    }
+
+    .history-page-header {
+        font-size: 0.8rem;
+    }
+
+    .empty-list-text {
+        margin: 0rem;
     }
 
 }

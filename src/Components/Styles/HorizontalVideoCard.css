@@ -1,0 +1,116 @@
+.horz-video-card {
+
+    max-width: 41rem;
+    max-height: 11rem;
+    display: flex;
+    padding: 1rem;
+}
+
+.horz-video-thumbnail {
+    width: 15rem;
+}
+
+.horz-video-thumbnail img {
+    max-width: 100%;
+    display: block;
+    height: auto;
+}
+
+.horz-video-info {
+    width: 25rem;
+    padding-left: 1rem;
+    max-height: 10rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.horz-video-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.horz-video-title {
+    font-size: 1.125rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.delete-history-btn {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: transparent;
+    border-color: transparent;
+    border-radius: 50%;
+}
+
+.delete-history-btn span{
+    font-size: 1.5rem;
+    padding: 0rem;
+    font-weight: lighter;
+    color: var(--tick-color);
+}
+
+.delete-history-btn:hover {
+    background-color: var(--chip-hover-color);
+}
+
+.horz-video-creater-div {
+    margin-top: 0rem;
+}
+
+.horz-video-footer {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--tick-color);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+
+@media only screen and (max-width: 575px) {
+
+    .horz-video-title {
+        font-size: 1rem;
+    }
+
+    .horz-video-footer {
+        -webkit-line-clamp: 1;
+    }
+}
+
+
+@media only screen and (max-width: 475px) {
+
+    .horz-video-footer {
+        display: none;
+    }
+
+    .horz-video-creater-div {
+        margin-top: 0.5rem;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+
+    .horz-video-title {
+        font-size: 0.85rem;
+    }
+
+    .horz-video-creater-div {
+        margin-top: 0.25rem;
+        font-size: 0.65rem;
+    }
+
+    .horz-video-creater-div span {
+        font-size: 0.65rem;
+    }
+
+    .delete-history-btn span {
+        font-size: 1.2rem;
+    }
+}
+

@@ -16,15 +16,19 @@
     padding: 1rem;
 }
 
-.menu-item:hover {
-    background-color: var(--chip-hover-color);
-    cursor: pointer;
-}
 
 .active {
     background-color: var(--chip-hover-color);
 }
 
+.menu-item:hover {
+    background-color: var(--chip-hover-color);
+    cursor: pointer;
+}
+
+.active:hover {
+    background-color: var(--menu-item-hover-color);
+}
 
 @media only screen and (max-width: 768px) {
 
