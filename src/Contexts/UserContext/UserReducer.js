@@ -9,10 +9,12 @@ export const userReducer = (state, { type, payload }) => {
         history: payload,
       };
 
-    case "ADD_TO_LIKED": return {
-      ...state,
-      liked: payload
-    }  
+    case "ADD_TO_LIKED":
+    case "REMOVE_FROM_LIKED":
+      return {
+        ...state,
+        liked: payload
+      }
 
 
   }

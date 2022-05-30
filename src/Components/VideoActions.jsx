@@ -37,9 +37,16 @@ export default function VideoActions({ Video }) {
       if (res.status === 200 || res.status === 201) {
         const { likes } = res.data;
         userDispatch({ type: "ADD_TO_LIKED", payload: likes })
+        toast("Video Liked!", {
+          icon: '❤️',
+          style: toastStyle
+        });
       }
     } catch (error) {
       console.log(error);
+      toast.error("Something went wrong. Please try again!", {
+        style: toastStyle
+      });
     }
   }
 
@@ -68,7 +75,7 @@ export default function VideoActions({ Video }) {
   return (
     <div className="video-action-list">
       <div className="video-action flex-align-center" onClick={likeHandler}>
-        {isVideoLiked ? <span className="material-icons">thumb_up</span> : <span className="material-icons-outlined">thumb_up</span> }
+        {isVideoLiked ? <span className="material-icons">thumb_up</span> : <span className="material-icons-outlined">thumb_up</span>}
 
         <p>Like</p>
       </div>

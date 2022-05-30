@@ -29,6 +29,42 @@ export default function HorizontalVideoCard({ Video, Type }) {
 
     }
 
+    const unlikeHandler = async (videoId, userDispatch) => {
+
+        try {
+            const res = await axios.delete(`/api/user/likes/${videoId}`, {
+                headers: {
+                    authorization: localStorage.getItem("Token"),
+                },
+            });
+            if (res.status === 200 || res.status === 201) {
+                console.log(likes);
+                userDispatch({ type: "REMOVE_FROM_LIKED", payload: likes });
+                toast("Video Unliked!", {
+                    icon: '💔',
+                    style: toastStyle
+                });
+            }
+        } catch (err) {
+            console.log(err);
+            toast.error("Something went wrong. Please try again!", {
+                style: toastStyle
+            });
+        }
+
+    }
+
+    const removeButtonHandler = (Type) => {
+        if (Type === "History") {
+            deleteHistoryHandler(Video._id, userDispatch);
+        }
+
+        else if (Type === "Liked") {
+            unlikeHandler(Video._id, userDispatch);
+        }
+
+    }
+
     return (
         <div className="horz-video-card">
 
@@ -47,8 +83,8 @@ export default function HorizontalVideoCard({ Video, Type }) {
                             <span className="material-icons">check_circle</span>
                         </div>
                     </div>
-
-                    <button className="delete-history-btn" onClick={() => Type === "History" ? deleteHistoryHandler(Video._id, userDispatch) : null}><span className="material-icons-outlined">delete_outline</span></button>
+                    {/* Type === "History" ? deleteHistoryHandler(Video._id, userDispatch) : null */}
+                    <button className="delete-history-btn" onClick={() => removeButtonHandler(Type)}><span className="material-icons-outlined">delete_outline</span></button>
 
                 </div>
 
