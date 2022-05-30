@@ -90,7 +90,7 @@ export default function VideoPage() {
 
                             </div>
 
-                            <VideoActions />
+                            <VideoActions Video={videoToPlay}/>
                         </div>
                         <div className="video-desc">
                             <p>{videoToPlay.description}</p>

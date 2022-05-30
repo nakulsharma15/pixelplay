@@ -27,7 +27,7 @@ export default function LoginForm() {
             setUserDetails(response.data.foundUser);
             localStorage.setItem("Token", response.data.encodedToken);
             toast.success("You're successfully logged in.", {style: toastStyle});
-            navigate(location.state?.from?.pathname);
+            navigate(location.state?.from?.pathname === undefined ? "/" :location.state?.from?.pathname );
           }
         } catch (error) {
           console.log(error);

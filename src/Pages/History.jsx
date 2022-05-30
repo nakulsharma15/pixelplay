@@ -53,7 +53,7 @@ export default function History() {
 
                     {history.length === 0 ? <p className="empty-list-text">This list has currently no videos</p> :
                         <div className="horz-video-list">
-                            {history.map((video) => <div key={video._id}><HorizontalVideoCard Video={video} /></div>)}
+                            {history.map((video) => <div key={video._id}><HorizontalVideoCard Video={video} Type={"History"}/></div>)}
                         </div>}
 
 
