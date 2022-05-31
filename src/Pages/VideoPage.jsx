@@ -29,8 +29,6 @@ export default function VideoPage() {
 
     const videoToPlay = videos.find((video) => video._id === videoId)
 
-    console.log(videoToPlay);
-
     const historyHandler = async (videoId, userDispatch) => {
 
         const videoToAdd = videos.find((video) => video._id === videoId);
@@ -48,12 +46,11 @@ export default function VideoPage() {
             const { status, data } = response;
             if (status === 201) {
                 userDispatch({ type: "ADD_TO_HISTORY", payload: data?.history });
-                console.log("video added");
             }
         } catch (error) {
             if (error.response.status === 409) {
             } else {
-                console.log("Couldn't add to History", error);
+                console.log(error);
             }
         }
     };
@@ -90,7 +87,7 @@ export default function VideoPage() {
 
                             </div>
 
-                            <VideoActions />
+                            <VideoActions Video={videoToPlay}/>
                         </div>
                         <div className="video-desc">
                             <p>{videoToPlay.description}</p>
