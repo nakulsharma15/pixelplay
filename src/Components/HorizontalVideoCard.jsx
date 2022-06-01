@@ -38,7 +38,7 @@ export default function HorizontalVideoCard({ Video, Type }) {
                 },
             });
             if (res.status === 200 || res.status === 201) {
-                console.log(likes);
+                const { likes } = res.data;
                 userDispatch({ type: "REMOVE_FROM_LIKED", payload: likes });
                 toast("Video Unliked!", {
                     icon: '💔',
