@@ -1,66 +1,21 @@
 import "./Styles/HorizontalVideoCard.css";
 import { useUserDetails } from "../Contexts/UserContext/UserContext";
-import axios from "axios";
-import { toast } from "react-hot-toast";
-import toastStyle from "../Utils/toastStyle";
+import { unLikeHandler } from "../Utils/handleLikeUnlike";
+import { deleteHistoryHandler } from "../Utils/handleHistory";
+import { removeFromWatchLater } from "../Utils/handleWatchLater";
 
 export default function HorizontalVideoCard({ Video, Type }) {
 
     const { userDispatch } = useUserDetails();
 
-    const deleteHistoryHandler = async (videoId, userDispatch) => {
-
-        try {
-            const response = await axios.delete(`/api/user/history/${videoId}`, {
-                headers: {
-                    authorization: localStorage.getItem("Token"),
-                },
-            });
-            const { status, data } = response;
-            if (status === 200 || status === 201) {
-                userDispatch({ type: "REMOVE_FROM_HISTORY", payload: data?.history });
-            }
-        } catch (error) {
-            console.log(error);
-            toast.error("Something went wrong. Please try again!", {
-                style: toastStyle
-            });
-        }
-
-    }
-
-    const unlikeHandler = async (videoId, userDispatch) => {
-
-        try {
-            const res = await axios.delete(`/api/user/likes/${videoId}`, {
-                headers: {
-                    authorization: localStorage.getItem("Token"),
-                },
-            });
-            if (res.status === 200 || res.status === 201) {
-                const { likes } = res.data;
-                userDispatch({ type: "REMOVE_FROM_LIKED", payload: likes });
-                toast("Video Unliked!", {
-                    icon: '💔',
-                    style: toastStyle
-                });
-            }
-        } catch (err) {
-            console.log(err);
-            toast.error("Something went wrong. Please try again!", {
-                style: toastStyle
-            });
-        }
-
-    }
-
     const removeButtonHandler = (Type) => {
-        if (Type === "History") {
-            deleteHistoryHandler(Video._id, userDispatch);
-        }
 
-        else if (Type === "Liked") {
-            unlikeHandler(Video._id, userDispatch);
+        switch(Type) {
+            case "History": deleteHistoryHandler(Video._id, userDispatch); break;
+
+            case "Liked": unLikeHandler(Video._id, userDispatch); break;
+
+            case "WatchLater": removeFromWatchLater(Video._id, userDispatch); break; 
         }
 
     }
@@ -83,7 +38,7 @@ export default function HorizontalVideoCard({ Video, Type }) {
                             <span className="material-icons">check_circle</span>
                         </div>
                     </div>
-                    {/* Type === "History" ? deleteHistoryHandler(Video._id, userDispatch) : null */}
+            
                     <button className="delete-history-btn" onClick={() => removeButtonHandler(Type)}><span className="material-icons-outlined">delete_outline</span></button>
 
                 </div>

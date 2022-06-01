@@ -3,51 +3,24 @@ import { useAuth } from "../Contexts/AuthContext";
 import toast from "react-hot-toast";
 import toastStyle from "../Utils/toastStyle";
 import { useUserDetails } from "../Contexts/UserContext/UserContext";
-import axios from "axios";
+import { addToLikeHandler, unLikeHandler } from "../Utils/handleLikeUnlike";
+import { addToWatchLaterHandler, removeFromWatchLater } from "../Utils/handleWatchLater";
 
 export default function VideoActions({ Video }) {
 
   const { isLoggedIn } = useAuth();
   const { userState, userDispatch } = useUserDetails();
 
-  const { liked } = userState;
+  const { liked, watchlater } = userState;
 
   const likeHandler = () => {
 
-    isLoggedIn ? addToLikeHandler(userDispatch) : toast((t) => (<p><b>Like this video?</b> <p style={{ color: "#aaa" }}>Log in to make your opinion count.</p></p>),
+    isLoggedIn ? addToLikeHandler(Video, userDispatch) : toast((t) => (<p><b>Like this video?</b> <p style={{ color: "#aaa" }}>Log in to make your opinion count.</p></p>),
       {
         icon: '⚠️',
         style: toastStyle,
       }
     );
-  }
-
-  const addToLikeHandler = async (userDispatch) => {
-    const videoToLike = Video;
-    try {
-      const res = await axios.post(
-        "/api/user/likes",
-        { video: videoToLike },
-        {
-          headers: {
-            authorization: localStorage.getItem("Token"),
-          },
-        }
-      );
-      if (res.status === 200 || res.status === 201) {
-        const { likes } = res.data;
-        userDispatch({ type: "ADD_TO_LIKED", payload: likes })
-        toast("Video Liked!", {
-          icon: '❤️',
-          style: toastStyle
-        });
-      }
-    } catch (error) {
-      console.log(error);
-      toast.error("Something went wrong. Please try again!", {
-        style: toastStyle
-      });
-    }
   }
 
   const playlistHandler = () => {
@@ -62,7 +35,7 @@ export default function VideoActions({ Video }) {
 
   const watchlaterHandler = () => {
 
-    isLoggedIn ? null : toast((t) => (<p><b>Want to watch this later?</b> <p style={{ color: "#aaa" }}>Log in to add this video to Watch Later.</p></p>),
+    isLoggedIn ? addToWatchLaterHandler(Video, userDispatch) : toast((t) => (<p><b>Want to watch this later?</b> <p style={{ color: "#aaa" }}>Log in to add this video to Watch Later.</p></p>),
       {
         icon: '⚠️',
         style: toastStyle,
@@ -72,15 +45,18 @@ export default function VideoActions({ Video }) {
 
   const isVideoLiked = liked.find((video) => video._id === Video._id) === undefined ? false : true;
 
+  const isWatchLater = watchlater.find((video) => video._id === Video._id) === undefined ? false : true;
+
   return (
     <div className="video-action-list">
-      <div className="video-action flex-align-center" onClick={likeHandler}>
+      <div className="video-action flex-align-center" onClick={isVideoLiked ? () => unLikeHandler(Video._id, userDispatch) : likeHandler}>
         {isVideoLiked ? <span className="material-icons">thumb_up</span> : <span className="material-icons-outlined">thumb_up</span>}
 
         <p>Like</p>
       </div>
-      <div className="video-action flex-align-center" onClick={watchlaterHandler}>
-        <span className="material-icons-outlined">watch_later</span>
+      <div className="video-action flex-align-center" onClick={isWatchLater ? () => removeFromWatchLater(Video._id, userDispatch) : watchlaterHandler}>
+        {isWatchLater ? <span className="material-icons">watch_later</span> : <span className="material-icons-outlined">watch_later</span>}
+
         <p>Watch Later</p>
       </div>
       <div className="video-action flex-align-center" onClick={playlistHandler}>
