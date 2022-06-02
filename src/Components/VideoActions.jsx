@@ -5,6 +5,7 @@ import toastStyle from "../Utils/toastStyle";
 import { useUserDetails } from "../Contexts/UserContext/UserContext";
 import { addToLikeHandler, unLikeHandler } from "../Utils/handleLikeUnlike";
 import { addToWatchLaterHandler, removeFromWatchLater } from "../Utils/handleWatchLater";
+import { useVideo } from "../Contexts/VideoContext/VideoContext";
 
 export default function VideoActions({ Video }) {
 
@@ -12,6 +13,8 @@ export default function VideoActions({ Video }) {
   const { userState, userDispatch } = useUserDetails();
 
   const { liked, watchlater } = userState;
+
+  const {setShowModal} = useVideo();
 
   const likeHandler = () => {
 
@@ -25,7 +28,7 @@ export default function VideoActions({ Video }) {
 
   const playlistHandler = () => {
 
-    isLoggedIn ? null : toast((t) => (<p><b>Want to watch this again later?</b> <p style={{ color: "#aaa" }}>Log in to add this video to a playlist.</p></p>),
+    isLoggedIn ? setShowModal(true) : toast((t) => (<p><b>Want to watch this again later?</b> <p style={{ color: "#aaa" }}>Log in to add this video to a playlist.</p></p>),
       {
         icon: '⚠️',
         style: toastStyle,
