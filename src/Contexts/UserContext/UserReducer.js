@@ -14,6 +14,12 @@ export const userReducer = (state, { type, payload }) => {
       return {
         ...state,
         liked: payload
+      };
+
+    case "ADD_TO_WATCHLATER":
+    case "REMOVE_FROM_WATCHLATER":
+      return {
+        ...state, watchlater: payload
       }
 
 
