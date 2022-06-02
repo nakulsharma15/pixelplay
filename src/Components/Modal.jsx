@@ -33,6 +33,7 @@ const Modal = ({ setShowModal }) => {
                                 </button>
                             </div>
                         </div>
+                       
                     </div>
                 </div>
             </div>
