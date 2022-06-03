@@ -1,35 +1,37 @@
 import React from "react";
-import styles from "./Styles/Modal.module.css";
+import "./Styles/Modal.css";
 
 const Modal = ({ setShowModal }) => {
 
     return (
         <>
-            <div className={styles.darkBG}>
-                <div className={styles.centered}>
-                    <div className={styles.modal}>
-                        <div className={styles.modalHeader}>
-                            <h5 className={styles.heading}>Dialog</h5>
+            <div className="modal-bg">
+                <div className="modal-centered">
+
+                    <div className="modal">
+
+                        <div className="modal-header">
+                            <p>Save to...</p>
                         </div>
-                        <button className={styles.closeBtn} onClick={() => setShowModal(false)}>
-                            <span>band</span>
-                        </button>
-                        <div className={styles.modalContent}>
-                            Are you sure you want to delete the item?
+                       
+                        <div className="playlist-container">
+                            No playlist to show yet...
                         </div>
-                        <div className={styles.modalActions}>
-                            <div className={styles.actionsContainer}>
+
+                        <div className="modal-actions">
+
+                            <div className="actions-container">
                                 <button
-                                    className={styles.deleteBtn}
+                                    className="modal-action-btn create-btn"
                                     onClick={() => setShowModal(false)}
                                 >
-                                    Delete
+                                    Create
                                 </button>
                                 <button
-                                    className={styles.cancelBtn}
+                                    className="modal-action-btn close-btn"
                                     onClick={() => setShowModal(false)}
                                 >
-                                    Cancel
+                                    Close
                                 </button>
                             </div>
                         </div>
