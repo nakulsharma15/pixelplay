@@ -22,6 +22,21 @@ export const userReducer = (state, { type, payload }) => {
         ...state, watchlater: payload
       }
 
+    case "CLEAR_ALL_PLAYLIST":
+      return { ...state, playlists: [] };
+    case "ADD_PLAYLIST":
+    case "DELETE_PLAYLIST":
+      return { ...state, playlists: payload };
+
+    case "ADD_TO_PLAYLIST":
+    case "DELETE_FROM_PLAYLIST":
+      const updatedPlaylist = state.playlists?.map((item) =>
+        item._id === payload?._id ? payload : item);
+        
+      return { ...state, playlists: updatedPlaylist };
+
+    default:
+      break;
 
   }
 

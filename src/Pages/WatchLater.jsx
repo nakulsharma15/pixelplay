@@ -22,7 +22,7 @@ export default function WatchLater() {
 
                         <div>
                             <h1>Watch Later</h1>
-                            {watchlater.length === 0 ? <p>Videos you add to watch later will appear here</p> : <p>Here are the videos you added to watch later: </p>}
+                            {watchlater.length === 0 ? <p>Save videos to watch later. Your list shows up right here.</p> : <p>Here are the videos you added to watch later: </p>}
 
                         </div>
 

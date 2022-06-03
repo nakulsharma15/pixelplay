@@ -1,31 +1,41 @@
 import React, { useState } from "react";
 import "./Styles/Modal.css";
+import { useUserDetails } from "../Contexts/UserContext/UserContext";
+import { addPlaylist } from "../Utils/handlePlaylist";
 
 const Modal = ({ setShowModal }) => {
 
-    const [playlistName, setPlaylistName] = useState("");
+    const [playlistName, setPlaylistName] = useState({ title: "", description: "" });
 
-    const [isError, setIsError] = useState({errorState:false, errorMessage:""});
+    const { userState, userDispatch } = useUserDetails();
 
+    const { playlists } = userState;
+
+    const [isError, setIsError] = useState({ errorState: false, errorMessage: "" });
+
+    const [isPlay, setIsPlay] = useState(false);
     const playlistNameHandler = (event) => {
-        setPlaylistName(event.target.value);
+        setPlaylistName((prev) => ({ ...prev, title: event.target.value }));
 
-        if(playlistName.length < 1 || playlistName.length > 5) {
-            setIsError((prev) => ({...prev , errorState: false , errorMessage:""}))
-        }
+        setIsError((prev) => ({ ...prev, errorState: false, errorMessage: "" }))
 
     }
 
     const createPlaylistHandler = () => {
 
-        if (playlistName.length < 1) {
-            setIsError( (prev) => ({...prev,errorState:true , errorMessage:"Playlist name cannot be empty"}));
+        if (playlistName.title.length < 1) {
+            setIsError((prev) => ({ ...prev, errorState: true, errorMessage: "Playlist name cannot be empty" }));
         }
-        else if (playlistName.length > 5) {
-            setIsError({errorState:true , errorMessage:"Playlist name must be less than 50 characters"});
+        else if (playlistName.title.length > 50) {
+            setIsError({ errorState: true, errorMessage: "Playlist name must be less than 50 characters" });
         }
-        else 
-        setShowModal(false);
+        else {
+            addPlaylist(playlistName, userDispatch);
+            setIsError({ errorState: false, errorMessage: "" })
+            setPlaylistName({title:"",description:""})
+            // setShowModal(false);
+
+        }
 
     }
 
@@ -41,29 +51,22 @@ const Modal = ({ setShowModal }) => {
                         </div>
 
                         <div className="playlist-container">
-                            <p> No playlist to show yet...</p>
-                            <p> No playlist to show yet...</p>
-                            <p> No playlist to show yet...</p>
-                            <p> No playlist to show yet...</p>
-                            <p> No playlist to show yet...</p>
-                            <p> No playlist to show yet...</p>
-                            <p> No playlist to show yet...</p>
-                            <p> No playlist to show yet...</p>
-                            <p> No playlist to show yet...</p>
 
-                            <p> No playlist to show yet...</p>
-                            <p> No playlist to show yet...</p>
-                            <p> No playlist to show yet...</p>
-                            <p> No playlist to show yet...</p>
-                            <p> No playlist to show yet...</p>
-                            <p> No playlist to show yet...</p>
+                            {playlists.map((playlist) => <div className="playlist-item-div" onClick={() => setIsPlay((prev) => !prev)}>
+
+                                {isPlay === true ? <span className="material-icons playlist-check">check_box</span> : <span className="material-icons-outlined playlist-check playlist-uncheck">check_box_outline_blank</span>}
+
+                                <p>{playlist.title}</p>
+                            </div>)}
+
                         </div>
 
                         <div className="playlist-input">
 
-                            <input type="text" placeholder="Create a new Playlist" onChange={playlistNameHandler} value={playlistName} style={ isError.errorState === true ? { border: "2px solid red"} : null}/>
+                            <input type="text" placeholder="Create a new Playlist" onChange={playlistNameHandler} value={playlistName.title} style={isError.errorState === true ? { border: "2px solid red" } : null} />
                         </div>
-                        <p className="error-message modal-error-message" style={ isError.errorState === true ? { display: "block"} : { display: "none"}}>{isError.errorMessage}</p>
+
+                        <p className="error-message modal-error-message" style={isError.errorState === true ? { display: "block" } : { display: "none" }}>{isError.errorMessage}</p>
 
                         <div className="modal-actions">
 

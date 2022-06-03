@@ -22,7 +22,7 @@ export default function Liked() {
 
                         <div>
                             <h1>Liked Videos</h1>
-                            {liked.length === 0 ? <p>Videos you liked will appear here</p> : <p>Here are the videos you liked: </p>}
+                            {liked.length === 0 ? <p>Use the thumbs up icon to like videos. Your list shows up right here.</p> : <p>Here are the videos you liked: </p>}
                             
                         </div>
 

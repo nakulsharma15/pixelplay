@@ -43,7 +43,33 @@
     background-color: rgba(0, 0, 0, 0.4);
     border-radius: 0.5rem;
     overflow-y: scroll;
-} 
+}
+
+.playlist-item-div {
+    display: flex;
+    align-items: center;
+    background-color: var(--primary-bg-color);
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    gap: 1rem;
+   
+}
+
+.playlist-item-div:hover {
+    cursor: pointer;
+}
+
+.playlist-check {
+    color: var(--submit-btn-color);
+}
+
+.playlist-uncheck {
+    color: var(--white);
+}
+
+.playlist-check:hover {
+    cursor: pointer;
+}
 
 .playlist-input {
     margin: 0.25rem 0.5rem;

@@ -23,7 +23,7 @@ export default function History() {
 
                         <div>
                             <h1>Watch History</h1>
-                            {history.length === 0 ?  <p>Videos you watched will appear here</p> : <p>Here are the videos you watched: </p>}
+                            {history.length === 0 ?  <p>Videos you watch will show up here.</p> : <p>Here are the videos you watched: </p>}
                            
                         </div>
                         {history.length !== 0 ? <button className="btn icon-btn clear-history-btn" onClick={() => clearHistoryHandler(userDispatch)}>Clear All <span className="material-icons-outlined">delete</span></button> : null}
