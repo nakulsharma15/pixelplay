@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./Styles/Modal.css";
 import { useUserDetails } from "../Contexts/UserContext/UserContext";
-import { addPlaylist } from "../Utils/handlePlaylist";
+import { addPlaylist, addToPlaylist, deleteFromPlaylist } from "../Utils/handlePlaylist";
 
-const Modal = ({ setShowModal }) => {
+const Modal = ({ setShowModal, video }) => {
 
     const [playlistName, setPlaylistName] = useState({ title: "", description: "" });
 
@@ -14,6 +14,7 @@ const Modal = ({ setShowModal }) => {
     const [isError, setIsError] = useState({ errorState: false, errorMessage: "" });
 
     const [isPlay, setIsPlay] = useState(false);
+
     const playlistNameHandler = (event) => {
         setPlaylistName((prev) => ({ ...prev, title: event.target.value }));
 
@@ -30,12 +31,27 @@ const Modal = ({ setShowModal }) => {
             setIsError({ errorState: true, errorMessage: "Playlist name must be less than 50 characters" });
         }
         else {
-            addPlaylist(playlistName, userDispatch);
+            let res = addPlaylist(playlistName, userDispatch);
             setIsError({ errorState: false, errorMessage: "" })
-            setPlaylistName({title:"",description:""})
+            setPlaylistName({ title: "", description: "" })
             // setShowModal(false);
 
         }
+
+    }
+
+    const findIfVideoInPlaylist = (playlist) =>
+        playlist?.videos?.some((playlistVideo) => playlistVideo._id === video._id);
+
+    const addToPlaylistHandler = (playlistId) => {
+        addToPlaylist(playlistId, video, userDispatch);
+        setIsPlay(true);
+
+    }
+
+    const removeFromPlaylistHandler = (playlist) => {
+        deleteFromPlaylist(playlist, video, userDispatch)
+        setIsPlay(false);
 
     }
 
@@ -52,9 +68,9 @@ const Modal = ({ setShowModal }) => {
 
                         <div className="playlist-container">
 
-                            {playlists.map((playlist) => <div className="playlist-item-div" onClick={() => setIsPlay((prev) => !prev)}>
+                            {playlists.map((playlist) => <div className="playlist-item-div" onClick={() => findIfVideoInPlaylist(playlist) ? removeFromPlaylistHandler(playlist) : addToPlaylistHandler(playlist._id)}>
 
-                                {isPlay === true ? <span className="material-icons playlist-check">check_box</span> : <span className="material-icons-outlined playlist-check playlist-uncheck">check_box_outline_blank</span>}
+                                { findIfVideoInPlaylist(playlist) ? <span className="material-icons playlist-check">check_box</span> : <span className="material-icons-outlined playlist-check playlist-uncheck">check_box_outline_blank</span>}
 
                                 <p>{playlist.title}</p>
                             </div>)}

@@ -36,7 +36,7 @@ export default function VideoPage() {
     return (
         isLoading ||
         <div>
-            {showModal && <Modal setShowModal={setShowModal} />}
+            {showModal && <Modal setShowModal={setShowModal} video={videoToPlay}/>}
             <Header />
 
             <div className="page-content">
