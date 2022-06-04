@@ -7,6 +7,7 @@ import MockMan from "./MockMan";
 import Playlist from "./Playlist";
 import History from "./History";
 import VideoPage from "./VideoPage";
+import SinglePlaylistPage from "./SinglePlaylistPage";
 
 export {
     Home,
@@ -17,5 +18,6 @@ export {
     MockMan,
     Playlist,
     History,
-    VideoPage
+    VideoPage,
+    SinglePlaylistPage
 }

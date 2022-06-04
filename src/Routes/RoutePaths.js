@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import {Home,Playlist,History,MockMan,Liked,Login,Signup,WatchLater,VideoPage} from "../Pages/index";
+import {Home,Playlist,History,MockMan,Liked,Login,Signup,WatchLater,VideoPage,SinglePlaylistPage} from "../Pages/index";
 import RequireAuth from "../Utils/requiresAuth.js";
 
 function RoutePaths () {
@@ -15,6 +15,7 @@ function RoutePaths () {
         <Route path="/watchlater" element={<RequireAuth><WatchLater /></RequireAuth> } />
         <Route path="/mockman" element={<MockMan />} />
         <Route path="/watch/:videoId" element={<VideoPage />} />
+        <Route path="/playlist/:playlistId" element={<SinglePlaylistPage />} />
       </Routes>
     )
 }
