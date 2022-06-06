@@ -40,7 +40,7 @@ export default function SinglePlaylistPage() {
                     </div>
 
                     {playlistToShow.videos.length === 0 ? <p className="empty-list-text">No videos in this playlist yet</p> :
-                        <div className="playlist-page-item-container">
+                        <div className="horz-video-list">
                             {playlistToShow.videos.map((video) => <HorizontalVideoCard Video={video} Type={"PlaylistVideo"} Playlist={playlistToShow} />)}
                         </div>}
 
