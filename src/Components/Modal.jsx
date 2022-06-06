@@ -68,7 +68,7 @@ const Modal = ({ setShowModal, video }) => {
 
                         <div className="playlist-container">
 
-                            {playlists.map((playlist) => <div className="playlist-item-div" onClick={() => findIfVideoInPlaylist(playlist) ? removeFromPlaylistHandler(playlist) : addToPlaylistHandler(playlist._id)}>
+                            {playlists.map((playlist) => <div key={playlist._id} className="playlist-item-div" onClick={() => findIfVideoInPlaylist(playlist) ? removeFromPlaylistHandler(playlist) : addToPlaylistHandler(playlist._id)}>
 
                                 { findIfVideoInPlaylist(playlist) ? <span className="material-icons playlist-check">check_box</span> : <span className="material-icons-outlined playlist-check playlist-uncheck">check_box_outline_blank</span>}
 

@@ -3,8 +3,9 @@ import { useUserDetails } from "../Contexts/UserContext/UserContext";
 import { unLikeHandler } from "../Utils/handleLikeUnlike";
 import { deleteHistoryHandler } from "../Utils/handleHistory";
 import { removeFromWatchLater } from "../Utils/handleWatchLater";
+import {deleteFromPlaylist} from "../Utils/handlePlaylist"
 
-export default function HorizontalVideoCard({ Video, Type }) {
+export default function HorizontalVideoCard({ Video, Type, Playlist }) {
 
     const { userDispatch } = useUserDetails();
 
@@ -16,6 +17,8 @@ export default function HorizontalVideoCard({ Video, Type }) {
             case "Liked": unLikeHandler(Video._id, userDispatch); break;
 
             case "WatchLater": removeFromWatchLater(Video._id, userDispatch); break; 
+
+            case "PlaylistVideo": deleteFromPlaylist(Playlist,Video,userDispatch)
         }
 
     }

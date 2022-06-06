@@ -5,7 +5,9 @@ const RequireAuth = ({ children }) => {
   const { isLoggedIn } = useAuth();
   const location = useLocation();
 
-  return isLoggedIn ? children :
+  const token = localStorage.getItem("Token");
+
+  return token ? children :
 
     <Navigate to="/login" state={{ from: location }} replace={true} />
 
