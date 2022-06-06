@@ -5,12 +5,15 @@ import { useParams } from "react-router-dom";
 import useAxios from "../Utils/useAxios";
 import { useUserDetails } from "../Contexts/UserContext/UserContext";
 import { historyHandler } from "../Utils/handleHistory";
+import Modal from "../Components/Modal";
+import { useVideo } from "../Contexts/VideoContext/VideoContext";
 
 export default function VideoPage() {
 
     const { userDispatch } = useUserDetails();
 
     const { videoId } = useParams();
+    const { showModal, setShowModal } = useVideo();
 
     const opts = {
         height: '390',
@@ -33,6 +36,7 @@ export default function VideoPage() {
     return (
         isLoading ||
         <div>
+            {showModal && <Modal setShowModal={setShowModal} video={videoToPlay}/>}
             <Header />
 
             <div className="page-content">
@@ -42,7 +46,7 @@ export default function VideoPage() {
                 <div className="main-content">
                     <div className="video-section">
                         <div className="video-player">
-                            <YouTube videoId={videoId} opts={opts} onReady={() => historyHandler(videos,videoId, userDispatch)} />
+                            <YouTube videoId={videoId} opts={opts} onReady={() => historyHandler(videos, videoId, userDispatch)} />
                         </div>
                         <div className="video-name">
                             <p>{videoToPlay.title}</p>
@@ -60,7 +64,7 @@ export default function VideoPage() {
 
                             </div>
 
-                            <VideoActions Video={videoToPlay}/>
+                            <VideoActions Video={videoToPlay} />
                         </div>
                         <div className="video-desc">
                             <p>{videoToPlay.description}</p>
@@ -71,6 +75,8 @@ export default function VideoPage() {
             </div>
 
         </div>
+
+
     )
 
 }
