@@ -32,7 +32,7 @@ export default function Playlist() {
 
                     {playlists.length === 0 ? <p className="empty-list-text">No playlists yet</p> :
                         <div className="playlist-page-item-container">
-                            {playlists.map((playlist) => <Link to={`/playlist/${playlist._id}`} key={playlist._id} className="playlist-page-item-div"> {playlist.title} </Link>)}
+                            {playlists.map((playlist) => <Link to={`/playlist/${playlist._id}`} key={playlist._id} className="playlist-page-item-div"> <p> {playlist.title} </p></Link>)}
                         </div>}
 
                 </div>

@@ -139,6 +139,15 @@
     color: var(--tick-color);
 }
 
+.playlist-page-item-container {
+    margin: 2.5rem 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+
+}
+
 .playlist-page-item-div {
     width: 20rem;
     height: 10rem;
@@ -152,13 +161,8 @@
     border-radius: 0.5rem;
 }
 
-.playlist-page-item-container {
-    margin: 2.5rem 1rem;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 2rem;
-
+.playlist-page-item-div p {
+    max-width: 16rem;
 }
 
 .playlist-page-item-div:hover {
