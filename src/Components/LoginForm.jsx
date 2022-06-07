@@ -1,6 +1,6 @@
 import "./Styles/LoginForm.css";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { useFormik } from "formik";
+import { replace, useFormik } from "formik";
 import * as Yup from "yup";
 import { useAuth } from "../Contexts/AuthContext";
 import { toast } from "react-hot-toast";
@@ -27,7 +27,7 @@ export default function LoginForm() {
             setUserDetails(response.data.foundUser);
             localStorage.setItem("Token", response.data.encodedToken);
             toast.success("You're successfully logged in.", {style: toastStyle});
-            navigate(location.state?.from?.pathname === undefined ? "/" :location.state?.from?.pathname );
+            navigate(location.state?.from?.pathname === undefined ? "/" :location.state?.from?.pathname, {replace: true} );
           }
         } catch (error) {
           console.log(error);
