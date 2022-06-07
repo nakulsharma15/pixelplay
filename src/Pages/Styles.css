@@ -139,6 +139,16 @@
     color: var(--tick-color);
 }
 
+.playlist-page-item-container {
+    margin: 2.5rem 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+
+}
+
 .playlist-page-item-div {
     width: 20rem;
     height: 10rem;
@@ -146,24 +156,36 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
     font-size: 1.5rem;
     font-weight: 600;
     border-radius: 0.5rem;
 }
 
-.playlist-page-item-container {
-    margin: 2.5rem 1rem;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 2rem;
-
+.playlist-page-item-div p {
+    max-width: 16rem;
 }
 
 .playlist-page-item-div:hover {
     background-color: var(--chip-hover-color);
  }
+
+ .no-match-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10rem;
+    gap: 1rem;
+}
+
+.no-match-content h1 {
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.no-match-content p {
+    color: var(--tick-color);
+}
 
 @media only screen and (max-width: 768px) {
 
@@ -204,6 +226,7 @@
     }
 
 }
+
 
 @media only screen and (max-width: 500px) {
 

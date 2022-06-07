@@ -8,6 +8,7 @@ import Playlist from "./Playlist";
 import History from "./History";
 import VideoPage from "./VideoPage";
 import SinglePlaylistPage from "./SinglePlaylistPage";
+import NoMatch from "./NoMatch";
 
 export {
     Home,
@@ -19,5 +20,6 @@ export {
     Playlist,
     History,
     VideoPage,
-    SinglePlaylistPage
+    SinglePlaylistPage,
+    NoMatch
 }
