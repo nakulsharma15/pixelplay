@@ -145,6 +145,7 @@
     justify-content: flex-start;
     align-items: center;
     gap: 2rem;
+    flex-wrap: wrap;
 
 }
 
@@ -155,7 +156,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
     font-size: 1.5rem;
     font-weight: 600;
     border-radius: 0.5rem;
