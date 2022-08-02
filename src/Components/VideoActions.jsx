@@ -18,7 +18,7 @@ export default function VideoActions({ Video }) {
 
   const likeHandler = () => {
 
-    isLoggedIn ? addToLikeHandler(Video, userDispatch) : toast((t) => (<p><b>Like this video?</b> <p style={{ color: "#aaa" }}>Log in to make your opinion count.</p></p>),
+    isLoggedIn ? addToLikeHandler(Video, userDispatch) : toast((t) => (<div><b>Like this video?</b> <p style={{ color: "#aaa" }}>Log in to make your opinion count.</p></div>),
       {
         icon: '⚠️',
         style: toastStyle,
@@ -28,7 +28,7 @@ export default function VideoActions({ Video }) {
 
   const playlistHandler = () => {
 
-    isLoggedIn ? setShowModal(true) : toast((t) => (<p><b>Want to watch this again later?</b> <p style={{ color: "#aaa" }}>Log in to add this video to a playlist.</p></p>),
+    isLoggedIn ? setShowModal(true) : toast((t) => (<div><b>Want to watch this again later?</b> <p style={{ color: "#aaa" }}>Log in to add this video to a playlist.</p></div>),
       {
         icon: '⚠️',
         style: toastStyle,
@@ -38,7 +38,7 @@ export default function VideoActions({ Video }) {
 
   const watchlaterHandler = () => {
 
-    isLoggedIn ? addToWatchLaterHandler(Video, userDispatch) : toast((t) => (<p><b>Want to watch this later?</b> <p style={{ color: "#aaa" }}>Log in to add this video to Watch Later.</p></p>),
+    isLoggedIn ? addToWatchLaterHandler(Video, userDispatch) : toast((t) => (<div><b>Want to watch this later?</b> <p style={{ color: "#aaa" }}>Log in to add this video to Watch Later.</p></div>),
       {
         icon: '⚠️',
         style: toastStyle,

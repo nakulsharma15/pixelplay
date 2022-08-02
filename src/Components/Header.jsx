@@ -1,10 +1,22 @@
 import "./Styles/Header.css";
-import { Link } from "react-router-dom";
+import { Link, navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../Contexts/AuthContext";
+import { useUserDetails } from "../Contexts/UserContext/UserContext";
 
 export default function Header() {
 
-    const { isLoggedIn, logoutHandler } = useAuth();
+    const { isLoggedIn, setIsLoggedIn } = useAuth();
+
+    const {userDispatch} = useUserDetails();
+
+    const navigate = useNavigate();
+
+    const logoutHandler = () => {
+        localStorage.removeItem("Token");
+        setIsLoggedIn(false);
+        userDispatch({type: "LOGOUT"})
+        navigate("/");
+    };
 
     return (
         <div className="header flex-sb">
