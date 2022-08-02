@@ -13,6 +13,14 @@ export default function SignupForm() {
 
     const navigate = useNavigate();
 
+    const signupGuestCredentials = {
+        firstName: "Nakul",
+        lastName: "Sharma",
+        email: "nakulsharma@gmail.com",
+        password: "nakulsharma",
+        confirmPassword: "nakulsharma"
+    }
+
     const signupHandler = async (userData) => {
 
         try {
@@ -126,6 +134,8 @@ export default function SignupForm() {
                     }
 
                 </div>
+
+                <p className="action-txt" onClick={() => signupHandler(JSON.stringify(signupGuestCredentials))}>Signup using guest credentials</p>
 
                 <div className="form-action-div">
 
