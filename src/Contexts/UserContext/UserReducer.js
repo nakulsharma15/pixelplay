@@ -1,6 +1,18 @@
 export const userReducer = (state, { type, payload }) => {
 
+  const initialState = {
+    isLoggedIn: false,
+    playlist: [],
+    liked: [],
+    watchlater: [],
+    history: [],
+    playlists: []
+  }
+
   switch (type) {
+
+    case "LOGOUT": return initialState;
+
     case "ADD_TO_HISTORY":
     case "REMOVE_FROM_HISTORY":
     case "CLEAR_HISTORY":

@@ -15,7 +15,6 @@ export default function SinglePlaylistPage() {
     const { playlistId } = useParams();
 
     const playlistToShow = playlists?.find((playlist) => playlist._id === playlistId);
-    console.log(playlistToShow);
 
     return (
         <div>
@@ -41,7 +40,7 @@ export default function SinglePlaylistPage() {
 
                     {playlistToShow.videos.length === 0 ? <p className="empty-list-text">No videos in this playlist yet</p> :
                         <div className="horz-video-list">
-                            {playlistToShow.videos.map((video) => <HorizontalVideoCard Video={video} Type={"PlaylistVideo"} Playlist={playlistToShow} />)}
+                            {playlistToShow.videos.map((video) => <HorizontalVideoCard key={video._id} Video={video} Type={"PlaylistVideo"} Playlist={playlistToShow} />)}
                         </div>}
 
                 </div>
